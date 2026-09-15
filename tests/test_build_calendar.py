@@ -317,16 +317,28 @@ class DiscoveryTests(unittest.TestCase):
             self.assertEqual(len(bc.discover_seasons("https://api.test", 13888, None)), 3)
 
     def test_live_window(self):
-        upcoming = self.LISTING["data"][2]
-        self.assertFalse(bc.season_is_live(upcoming, bc.date(2026, 8, 1)))   # more than 45 days before start
-        self.assertTrue(bc.season_is_live(upcoming, bc.date(2026, 9, 15)))
-        self.assertTrue(bc.season_is_live(upcoming, bc.date(2026, 12, 10)))  # within 21 days after end
-        self.assertFalse(bc.season_is_live(upcoming, bc.date(2026, 12, 20)))
-        self.assertTrue(bc.season_is_over(upcoming, bc.date(2026, 12, 20)))
+        upcoming = self.LISTING["data"][2]  # Sep 28 to Nov 23
+        self.assertFalse(bc.season_is_live(upcoming, bc.date(2026, 9, 13)))  # more than 14 days before start
+        self.assertTrue(bc.season_is_live(upcoming, bc.date(2026, 9, 14)))
+        self.assertTrue(bc.season_is_live(upcoming, bc.date(2026, 12, 7)))   # within 14 days after end
+        self.assertFalse(bc.season_is_live(upcoming, bc.date(2026, 12, 8)))
+        self.assertTrue(bc.season_is_over(upcoming, bc.date(2026, 12, 8)))
 
-    def bundle(self, season_id, name, home="Mai Tai "):
+    def test_seasons_to_keep_retains_recent_started_and_all_upcoming(self):
+        seasons = [
+            {"id": 1, "startDate": "2026-03-01"}, {"id": 2, "startDate": "2026-05-18"},
+            {"id": 3, "startDate": "2026-07-20"}, {"id": 4, "startDate": "2026-09-28"},
+        ]
+        # Before the Sep 28 season starts, the two most recent started seasons plus the upcoming one.
+        self.assertEqual(bc.seasons_to_keep(seasons, bc.date(2026, 9, 15), 2), {2, 3, 4})
+        # Once it starts, the May season ages out.
+        self.assertEqual(bc.seasons_to_keep(seasons, bc.date(2026, 9, 28), 2), {3, 4})
+        self.assertEqual(bc.seasons_to_keep(seasons, bc.date(2026, 9, 28), 1), {4})
+        self.assertEqual(bc.seasons_to_keep(seasons, bc.date(2026, 9, 28), None), {1, 2, 3, 4})
+
+    def bundle(self, season_id, name, home="Mai Tai ", start="2026-05-18"):
         return {
-            "season": {"id": season_id, "name": name, "startDate": "2026-05-18", "endDate": "2026-07-14"},
+            "season": {"id": season_id, "name": name, "startDate": start, "endDate": "2026-07-14"},
             "competition": {"uuid": "u", "stages": [{"id": 10, "name": "Regular Season", "stageType": "regular_season"}]},
             "ruleset": None, "standings": [],
             "games": {"10": [{"eventId": season_id * 100, "stageName": "Regular Season", "status": "scheduled",
@@ -345,11 +357,12 @@ class DiscoveryTests(unittest.TestCase):
         today = bc.date(2026, 9, 15)
         with tempfile.TemporaryDirectory() as tmp:
             cache = Path(tmp)
-            # Season 9 is cached but no longer listed by the API; season 1 is over and uncached; 3 is live.
-            (cache / "9.json").write_text(json.dumps(self.bundle(9, "old")))
+            # Season 9 is cached but no longer listed by the API; season 1 is over and uncached; 3 is upcoming
+            # and live but has no schedule yet. By default every started season (9 and 1) is kept.
+            (cache / "9.json").write_text(json.dumps(self.bundle(9, "old", start="2026-03-01")))
             fetched = []
 
-            def fake_fetch_season(api_base, season, team):
+            def fake_fetch_season(api_base, season, team, cached=None):
                 fetched.append(season["id"])
                 return None if season["id"] == 3 else self.bundle(season["id"], season["name"])
 
@@ -366,6 +379,23 @@ class DiscoveryTests(unittest.TestCase):
                 seasons = bc.load_seasons(config, cache, today)
                 self.assertEqual(fetched, [3])
                 self.assertEqual(sorted(s.id for s in seasons), [1, 9])
+
+                # With keep_seasons=1 the oldest started season is dropped and its cache file removed.
+                seasons = bc.load_seasons({**config, "keep_seasons": 1}, cache, today)
+                self.assertEqual(sorted(s.id for s in seasons), [1])
+                self.assertFalse((cache / "9.json").exists())
+                self.assertTrue((cache / "1.json").exists())
+
+    def test_fetch_season_reuses_cached_ruleset(self):
+        responses = {
+            "https://api.test/program_seasons/5/competition": {"uuid": "u", "stages": [{"id": 10, "name": "Regular Season", "stageType": "regular_season"}]},
+            "https://api.test/competitions/u/stages/10/game-scores": [],
+            "https://api.test/competitions/u/stages/10/standings": [],
+        }
+        with mock.patch.object(bc, "fetch_json", side_effect=lambda url: responses[url]) as fetch:
+            bundle = bc.fetch_season("https://api.test", {"id": 5, "name": "s"}, TEAM, cached={"ruleset": {"pointsForWin": 3}})
+        self.assertEqual(bundle["ruleset"], {"pointsForWin": 3})
+        self.assertEqual(fetch.call_count, 3)
 
 
 class ParsingTests(unittest.TestCase):

@@ -35,11 +35,16 @@ from zoneinfo import ZoneInfo
 FEATURED_WINDOW = timedelta(days=8)
 FEATURED_GRACE = timedelta(hours=24)
 
-# A season is fetched live from this long before it starts (so the schedule appears
-# as soon as the league publishes it) until this long after it ends (so late score
-# corrections are picked up). Outside that window it is served from the cache.
-LIVE_BEFORE_START = timedelta(days=45)
-LIVE_AFTER_END = timedelta(days=21)
+# A season is fetched live from this long before it starts (the league builds the
+# schedule about a week ahead) until this long after it ends (playoff scores and
+# late corrections). Outside that window it is served from the cache.
+LIVE_BEFORE_START = timedelta(days=14)
+LIVE_AFTER_END = timedelta(days=14)
+
+# Every season the team has played stays in the calendar (cached seasons cost no requests).
+# Set "keep_seasons" in config.json to a number to keep only that many started seasons
+# (the current one counts); upcoming seasons are always kept.
+DEFAULT_KEEP_SEASONS: Optional[int] = None
 
 REGULAR_SEASON = "regular_season"
 FINAL = "final"
@@ -303,8 +308,11 @@ def season_is_over(season: dict, today: date) -> bool:
     return date.fromisoformat(season["endDate"]) + LIVE_AFTER_END < today
 
 
-def fetch_season(api_base: str, season: dict, team: str) -> Optional[dict]:
-    """Fetch everything about one season as raw API responses, or None if it has no competition yet."""
+def fetch_season(api_base: str, season: dict, team: str, cached: Optional[dict] = None) -> Optional[dict]:
+    """Fetch everything about one season as raw API responses, or None if it has no competition yet.
+
+    The ruleset never changes once a season is set up, so it is reused from `cached` when present.
+    """
     competition = fetch_json(f"{api_base}/program_seasons/{season['id']}/competition")
     if not competition or not competition.get("uuid"):
         return None
@@ -325,8 +333,8 @@ def fetch_season(api_base: str, season: dict, team: str) -> Optional[dict]:
             standings = raw
             break
 
-    ruleset = None
-    if stages:
+    ruleset = (cached or {}).get("ruleset")
+    if stages and ruleset is None:
         try:
             ruleset = fetch_json(f"{base}/{stages[0]['id']}/ruleset")
         except urllib.error.HTTPError as exc:
@@ -360,29 +368,44 @@ def parse_season(bundle: dict, team: str) -> Optional[Season]:
     )
 
 
-def load_seasons(config: dict, cache_dir: Path, today: date) -> list[Season]:
-    """Every season the team plays in: live ones from the API, finished ones from the cache.
+def seasons_to_keep(seasons: list[dict], today: date, keep: Optional[int]) -> set[int]:
+    """Ids of the `keep` most recently started seasons (all of them when `keep` is None), plus every
+    season that has not started yet."""
+    started = sorted((s for s in seasons if date.fromisoformat(s["startDate"]) <= today), key=lambda s: s["startDate"])
+    if keep is not None:
+        started = started[-keep:] if keep > 0 else []
+    return {s["id"] for s in started} | {s["id"] for s in seasons if date.fromisoformat(s["startDate"]) > today}
 
-    A finished season that is not cached yet is fetched once and cached. Cached seasons that have
-    dropped off the program's listing are kept, so old results never disappear from the calendar.
+
+def load_seasons(config: dict, cache_dir: Path, today: date) -> list[Season]:
+    """The seasons that belong in the calendar: live ones from the API, finished ones from the cache.
+
+    A finished season that is not cached yet is fetched once and cached. Seasons older than the
+    retention limit are dropped, along with their cache files; the git history still has them.
     """
     api_base, team = config["api_base"], config["team"]
     cached = {int(p.stem): json.loads(p.read_text(encoding="utf-8")) for p in cache_dir.glob("*.json")}
-    listed = discover_seasons(api_base, config["program_id"], config.get("season_name_contains"))
+    listed = {s["id"]: s for s in discover_seasons(api_base, config["program_id"], config.get("season_name_contains"))}
+    known = {**{sid: b["season"] for sid, b in cached.items()}, **listed}  # the listing is the fresher source
+    kept = seasons_to_keep(list(known.values()), today, config.get("keep_seasons", DEFAULT_KEEP_SEASONS))
+
+    for season_id in cached:
+        if season_id not in kept:
+            (cache_dir / f"{season_id}.json").unlink()
 
     bundles: dict[int, dict] = {}
-    for season in listed:
-        if season_is_live(season, today) or (season_is_over(season, today) and season["id"] not in cached):
-            bundle = fetch_season(api_base, season, team)
+    for season_id, season in known.items():
+        if season_id not in kept:
+            continue
+        if season_id in listed and (season_is_live(season, today) or (season_is_over(season, today) and season_id not in cached)):
+            bundle = fetch_season(api_base, season, team, cached.get(season_id))
             if bundle is None:
                 continue  # the league has not built this season's schedule yet
-            bundles[season["id"]] = bundle
+            bundles[season_id] = bundle
             cache_dir.mkdir(parents=True, exist_ok=True)
-            (cache_dir / f"{season['id']}.json").write_text(json.dumps(bundle, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-        elif season["id"] in cached:
-            bundles[season["id"]] = cached[season["id"]]
-    for season_id, bundle in cached.items():
-        bundles.setdefault(season_id, bundle)
+            (cache_dir / f"{season_id}.json").write_text(json.dumps(bundle, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        elif season_id in cached:
+            bundles[season_id] = cached[season_id]
 
     seasons = [parse_season(b, team) for b in bundles.values()]
     return sorted((s for s in seasons if s is not None), key=lambda s: min((g.start for g in s.games), default=datetime.max.replace(tzinfo=timezone.utc)))

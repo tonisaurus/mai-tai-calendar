@@ -25,10 +25,12 @@ written into each event's location.
   (case-insensitive), maps each to its competition and stages (`program_seasons/<id>/competition`), then
   fetches each stage's schedule and standings plus the scoring ruleset. Seasons the team does not appear in
   are ignored. Python 3.9+, no dependencies.
-- A season is fetched live from 45 days before it starts (so the schedule shows up as soon as the league
-  publishes it) until 21 days after it ends. Finished seasons are cached as raw API responses in
-  [`seasons/`](seasons/) and served from there, so past results stay in the calendar without daily
-  refetching, even after the league drops the season from its listing.
+- A season is fetched live from 14 days before it starts (the league builds the schedule about a week
+  ahead) until 14 days after it ends. Finished seasons are cached as raw API responses in
+  [`seasons/`](seasons/) and served from there without further requests.
+- Every season the team has played stays in the calendar, since cached seasons cost no requests. To keep
+  only the most recent N started seasons, set `"keep_seasons": N` in `config.json`; older seasons then drop
+  out of the feed and their cache files are deleted (git history still has them).
 - Each event's `UID` is the Bond Sports `eventId`, which is stable even before a game is played, so a
   rescheduled game or a posted score updates the existing calendar entry instead of creating a new one.
 - [`state.json`](state.json) remembers a content hash per event so `SEQUENCE` and `LAST-MODIFIED` only
@@ -60,8 +62,9 @@ automatically once the league builds the schedule. The only reasons to touch `co
 changing its name or league (`team`, `season_name_contains`), or Sports House moving to a new Bond Sports
 program (`program_id`, the number in the league page URL).
 
-API requests per run: one for the season listing, plus about five per live season (competition, ruleset,
-standings, and one per stage for scores). Nothing is fetched for cached seasons.
+API requests per run: one for the season listing, plus four per live season (competition, standings, and
+one per stage for scores; the ruleset is fetched once and cached). Nothing is fetched for cached seasons,
+so it is 6 requests most of the year and about 10 during the two weeks when seasons overlap.
 
 ## Running locally
 
