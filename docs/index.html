@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mai Tai Soccer Calendar</title>
+  <meta name="description" content="Subscribe to the Mai Tai indoor soccer schedule in Google Calendar or Apple Calendar.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f7f5;
+      --card: #ffffff;
+      --text: #1b1f1c;
+      --muted: #5c655f;
+      --accent: #0f7a5a;
+      --accent-text: #ffffff;
+      --border: #dfe3e0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141816;
+        --card: #1d2320;
+        --text: #eef1ee;
+        --muted: #a2aba5;
+        --accent: #3fbf93;
+        --accent-text: #0d1511;
+        --border: #2d3531;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 2.5rem 1rem 4rem;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    main { max-width: 34rem; margin: 0 auto; }
+    h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: -0.01em; }
+    .sub { color: var(--muted); margin: 0 0 1.75rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .card h2 { font-size: 1.05rem; margin: 0 0 .5rem; }
+    .card p { margin: 0 0 .75rem; color: var(--muted); }
+    .btn {
+      display: inline-block;
+      padding: .65rem 1rem;
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-weight: 600;
+      text-decoration: none;
+      margin: 0 .5rem .5rem 0;
+    }
+    .btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .url {
+      display: flex;
+      gap: .5rem;
+      align-items: stretch;
+    }
+    .url input {
+      flex: 1;
+      min-width: 0;
+      padding: .6rem .7rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .url button {
+      padding: .6rem .9rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    ol { padding-left: 1.25rem; margin: .25rem 0 0; color: var(--muted); }
+    li { margin-bottom: .25rem; }
+    footer { color: var(--muted); font-size: .85rem; margin-top: 2rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Mai Tai Soccer</h1>
+  <p class="sub">Indoor soccer at Sports House, Redwood City. Subscribe once and every game, score and schedule change shows up in your calendar automatically.</p>
+
+  <section class="card">
+    <h2>Google Calendar</h2>
+    <p>Opens Google Calendar and asks you to add the subscription. On a phone, do this in a browser signed in to your Google account; the Google Calendar app then picks it up.</p>
+    <a class="btn" id="google" href="#">Add to Google Calendar</a>
+    <ol>
+      <li>If the button does not work: open Google Calendar on the web, click the + next to "Other calendars", choose "From URL" and paste the link below.</li>
+      <li>Google refreshes subscribed calendars about once a day, so score updates can lag by up to 24 hours.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Apple Calendar (iPhone, iPad, Mac)</h2>
+    <p>Opens Calendar and asks you to subscribe.</p>
+    <a class="btn" id="apple" href="#">Add to Apple Calendar</a>
+    <ol>
+      <li>On iPhone you can also go to Settings &rarr; Calendar &rarr; Accounts &rarr; Add Account &rarr; Other &rarr; Add Subscribed Calendar and paste the link below.</li>
+      <li>In the subscription settings, pick "Every hour" or "Every day" for auto-refresh.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Calendar link</h2>
+    <p>Subscribe to this URL rather than importing the file so you keep getting updates.</p>
+    <div class="url">
+      <input id="url" type="text" readonly aria-label="Calendar URL">
+      <button id="copy" type="button">Copy</button>
+    </div>
+  </section>
+
+  <footer>
+    Game titles show each team's rank and record the week of the game, and switch to the final score afterwards.
+    Data comes from the league's public schedule and updates daily.
+    <a href="https://github.com/tonisaurus/mai-tai-calendar">Source on GitHub</a>.
+  </footer>
+</main>
+<script>
+  // Derive the feed URL from wherever this page is hosted, so a fork or rename keeps working.
+  const feed = new URL("mai-tai.ics", window.location.href);
+  const webcal = "webcal://" + feed.host + feed.pathname;
+  document.getElementById("url").value = feed.href;
+  document.getElementById("apple").href = webcal;
+  document.getElementById("google").href = "https://calendar.google.com/calendar/r?cid=" + encodeURIComponent(webcal);
+  document.getElementById("copy").addEventListener("click", async () => {
+    const input = document.getElementById("url");
+    input.select();
+    try { await navigator.clipboard.writeText(input.value); } catch (_) { document.execCommand("copy"); }
+    const button = document.getElementById("copy");
+    button.textContent = "Copied";
+    setTimeout(() => (button.textContent = "Copy"), 1500);
+  });
+</script>
+</body>
+</html>

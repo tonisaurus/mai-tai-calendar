@@ -1,0 +1,15 @@
+{
+  "team": "Mai Tai",
+  "calendar_name": "Mai Tai Soccer",
+  "timezone": "America/Los_Angeles",
+  "api_base": "https://api.bondsports.co/v4",
+  "seasons": [
+    {
+      "name": "Jul-Sep 2026",
+      "competition_id": "819c0134-1069-4e4d-b9d0-fb55f5eefa8d",
+      "stage_ids": [853, 854]
+    }
+  ],
+  "output": "docs/mai-tai.ics",
+  "state_file": "state.json"
+}

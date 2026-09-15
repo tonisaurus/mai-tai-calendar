@@ -1,0 +1,46 @@
+name: Update calendar
+
+on:
+  schedule:
+    # Daily at 14:00 UTC (7am PDT / 6am PST), a few hours after Monday night games finish.
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - config.json
+      - build_calendar.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-calendar
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build calendar from the Bond Sports API
+        env:
+          GAME_LOCATION: ${{ vars.GAME_LOCATION }}
+        run: python build_calendar.py
+
+      - name: Commit and push if anything changed
+        run: |
+          if git diff --quiet; then
+            echo "Calendar is up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/mai-tai.ics state.json
+          git commit -m "Update calendar $(date -u +%Y-%m-%d)"
+          git push

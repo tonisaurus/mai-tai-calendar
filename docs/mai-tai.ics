@@ -1,0 +1,171 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//mai-tai-calendar//Bond Sports team calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Mai Tai Soccer
+X-WR-TIMEZONE:America/Los_Angeles
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:bondsports-event-5727513@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260721T022000Z
+DTEND:20260721T030500Z
+SUMMARY:Latin Girls 1 - 2 Mai Tai (W)
+DESCRIPTION:Final: Latin Girls 1 - 2 Mai Tai (Mai Tai won)\nField 1\n\nUpda
+ ted Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5727518@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260728T031000Z
+DTEND:20260728T035500Z
+SUMMARY:Milan Mujeres 2 - 0 Mai Tai (L)
+DESCRIPTION:Final: Milan Mujeres 2 - 0 Mai Tai (Mai Tai lost)\nField 1\n\nU
+ pdated Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5727521@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260804T022000Z
+DTEND:20260804T030500Z
+SUMMARY:Mai Tai 8 - 0 Manchester (W)
+DESCRIPTION:Final: Mai Tai 8 - 0 Manchester (Mai Tai won)\nField 1\n\nUpdat
+ ed Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5727527@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260811T040000Z
+DTEND:20260811T044500Z
+SUMMARY:Mai Tai 7 - 3 Serendipity (W)
+DESCRIPTION:Final: Mai Tai 7 - 3 Serendipity (Mai Tai won)\nField 1\n\nUpda
+ ted Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5727528@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260818T013000Z
+DTEND:20260818T021500Z
+SUMMARY:Mai Tai 4 - 6 Phantom FC (L)
+DESCRIPTION:Final: Mai Tai 4 - 6 Phantom FC (Mai Tai lost)\nField 1\n\nUpda
+ ted Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5727532@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260825T013000Z
+DTEND:20260825T021500Z
+SUMMARY:Once Estrellas 1 - 6 Mai Tai (W)
+DESCRIPTION:Final: Once Estrellas 1 - 6 Mai Tai (Mai Tai won)\nField 1\n\nU
+ pdated Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5727539@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260901T040000Z
+DTEND:20260901T044500Z
+SUMMARY:Barracuda 1 - 7 Mai Tai (W)
+DESCRIPTION:Final: Barracuda 1 - 7 Mai Tai (Mai Tai won)\nField 1\n\nUpdate
+ d Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5727542@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260915T034000Z
+DTEND:20260915T042500Z
+SUMMARY:Mai Tai (3rd\, 5-2) vs Milan Mujeres (2nd\, 6-1)
+DESCRIPTION:Mai Tai (home) vs Milan Mujeres (away)\nField 1\n\nStandings - 
+ 7. Monday Women's Jul-Sep 26\n1. Phantom FC 7-0\, 21 pts\, GD +31\n2. Mila
+ n Mujeres 6-1\, 18 pts\, GD +23\n3. Mai Tai 5-2\, 15 pts\, GD +20\n4. Lati
+ n Girls 4-3\, 12 pts\, GD +15\n5. Serendipity 3-4\, 9 pts\, GD -1\n6. Once
+  Estrellas 1-6\, 3 pts\, GD -23\n7. Manchester 1-6\, 3 pts\, GD -27\n8. Ba
+ rracuda 1-6\, 3 pts\, GD -38\n\nUpdated Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5727653@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260922T020000Z
+DTEND:20260922T024500Z
+SUMMARY:Playoffs: TBD
+DESCRIPTION:Playoffs slot - teams not yet announced.\nThis event will updat
+ e once the league sets the matchups\, and will disappear if Mai Tai is not
+  playing in this slot.\nField 1\n\nUpdated Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5727652@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260922T025000Z
+DTEND:20260922T033500Z
+SUMMARY:Playoffs: TBD
+DESCRIPTION:Playoffs slot - teams not yet announced.\nThis event will updat
+ e once the league sets the matchups\, and will disappear if Mai Tai is not
+  playing in this slot.\nField 1\n\nUpdated Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5727651@mai-tai-calendar
+DTSTAMP:20260915T070300Z
+LAST-MODIFIED:20260915T070300Z
+SEQUENCE:0
+DTSTART:20260922T034000Z
+DTEND:20260922T042500Z
+SUMMARY:Playoffs: TBD
+DESCRIPTION:Playoffs slot - teams not yet announced.\nThis event will updat
+ e once the league sets the matchups\, and will disappear if Mai Tai is not
+  playing in this slot.\nField 1\n\nUpdated Sep 15\, 2026 12:03 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
