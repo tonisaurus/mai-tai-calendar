@@ -74,7 +74,7 @@ jobs:
 
           Failed run: $RUN_URL
 
-          Common causes: the Bond Sports API is unreachable, or the season's competition/stage ids in config.json are stale. This issue closes itself when a run succeeds again.
+          Common causes: the Bond Sports API is unreachable, Bond Sports changed its API, or the season metadata it returns is incomplete or unavailable. This issue closes itself when a run succeeds again.
           BODY
           )"
           fi

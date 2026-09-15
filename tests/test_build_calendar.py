@@ -386,6 +386,19 @@ class DiscoveryTests(unittest.TestCase):
                 self.assertFalse((cache / "9.json").exists())
                 self.assertTrue((cache / "1.json").exists())
 
+    def test_fetch_season_treats_missing_competition_as_not_scheduled_yet(self):
+        # Observed behaviour: before the league builds a season's schedule, program_seasons/<id>/competition
+        # returns 200 with an empty body, which fetch_json surfaces as None. fetch_season must report the
+        # season as not-yet-available (None) rather than raising, and must not go on to query stages.
+        # Removing this handling would make every run fail as soon as the next season shows up in the listing.
+        with mock.patch.object(bc, "fetch_json", return_value=None) as fetch:
+            self.assertIsNone(bc.fetch_season("https://api.test", {"id": 140775, "name": "next"}, TEAM))
+        self.assertEqual(fetch.call_count, 1)
+        self.assertTrue(fetch.call_args.args[0].endswith("/program_seasons/140775/competition"))
+        # A competition record without a uuid (e.g. {} or partial metadata) is treated the same way.
+        with mock.patch.object(bc, "fetch_json", return_value={"stages": []}):
+            self.assertIsNone(bc.fetch_season("https://api.test", {"id": 140775, "name": "next"}, TEAM))
+
     def test_fetch_season_reuses_cached_ruleset(self):
         responses = {
             "https://api.test/program_seasons/5/competition": {"uuid": "u", "stages": [{"id": 10, "name": "Regular Season", "stageType": "regular_season"}]},
