@@ -16,6 +16,7 @@ import hashlib
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
@@ -125,10 +126,32 @@ def clean_name(name: Optional[str]) -> str:
 # ------------------------------------------------------------------------ fetching
 
 
+FETCH_ATTEMPTS = 3
+FETCH_BACKOFF_SECONDS = 5
+
+
 def fetch_json(url: str):
+    """GET a JSON document, retrying transient failures (network errors, 5xx) with backoff.
+
+    4xx responses are returned to the caller immediately: they mean the URL is wrong
+    (e.g. a stale competition id), and retrying will not fix that.
+    """
     request = urllib.request.Request(url, headers={"User-Agent": "team-calendar/1.0"})
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.load(response)
+    for attempt in range(1, FETCH_ATTEMPTS + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return json.load(response)
+        except urllib.error.HTTPError as exc:
+            if exc.code < 500 or attempt == FETCH_ATTEMPTS:
+                raise
+            error = exc
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            if attempt == FETCH_ATTEMPTS:
+                raise
+            error = exc
+        delay = FETCH_BACKOFF_SECONDS * attempt
+        print(f"warning: {url} failed ({error}); retrying in {delay}s", file=sys.stderr)
+        time.sleep(delay)
 
 
 def parse_datetime(value: str) -> datetime:
@@ -448,6 +471,12 @@ def main(argv: Optional[list[str]] = None) -> int:
 
     state_path = root / config["state_file"]
     calendar, new_state = build(config, games, standings, load_state(state_path), now, location)
+
+    # An empty feed would delete every event from every subscriber's calendar, so treat it as an
+    # error (most likely a stale competition or stage id in config.json) rather than publishing it.
+    if not new_state:
+        print(f"error: the API returned no games for {config['team']!r}; refusing to publish an empty calendar", file=sys.stderr)
+        return 1
 
     if args.dry_run:
         sys.stdout.write(calendar)

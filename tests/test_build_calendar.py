@@ -1,5 +1,11 @@
+import io
+import json
 import sys
+import tempfile
 import unittest
+import urllib.error
+from contextlib import redirect_stderr
+from unittest import mock
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -153,6 +159,51 @@ class BuildTests(unittest.TestCase):
         calendar, state2 = bc.build(self.CONFIG, moved, STANDINGS, state, NOW + timedelta(hours=1), self.LOCATION)
         self.assertEqual(state2["bondsports-event-1@mai-tai-calendar"]["sequence"], 1)
         self.assertIn("SEQUENCE:1", calendar)
+
+
+class FetchTests(unittest.TestCase):
+    def response(self, payload):
+        body = io.BytesIO(json.dumps(payload).encode())
+        return mock.MagicMock(__enter__=lambda s: body, __exit__=lambda *a: False)
+
+    def test_retries_transient_errors_then_succeeds(self):
+        calls = [urllib.error.URLError("boom"), urllib.error.HTTPError("u", 503, "down", {}, None), self.response({"ok": 1})]
+        with mock.patch.object(bc.urllib.request, "urlopen", side_effect=calls) as urlopen, \
+                mock.patch.object(bc.time, "sleep") as sleep, redirect_stderr(io.StringIO()):
+            self.assertEqual(bc.fetch_json("https://example.test"), {"ok": 1})
+        self.assertEqual(urlopen.call_count, 3)
+        self.assertEqual([c.args[0] for c in sleep.call_args_list], [5, 10])
+
+    def test_does_not_retry_client_errors(self):
+        with mock.patch.object(bc.urllib.request, "urlopen", side_effect=urllib.error.HTTPError("u", 404, "gone", {}, None)) as urlopen, \
+                mock.patch.object(bc.time, "sleep") as sleep:
+            with self.assertRaises(urllib.error.HTTPError):
+                bc.fetch_json("https://example.test")
+        self.assertEqual(urlopen.call_count, 1)
+        sleep.assert_not_called()
+
+    def test_gives_up_after_last_attempt(self):
+        with mock.patch.object(bc.urllib.request, "urlopen", side_effect=urllib.error.URLError("boom")) as urlopen, \
+                mock.patch.object(bc.time, "sleep"), redirect_stderr(io.StringIO()):
+            with self.assertRaises(urllib.error.URLError):
+                bc.fetch_json("https://example.test")
+        self.assertEqual(urlopen.call_count, bc.FETCH_ATTEMPTS)
+
+
+class MainTests(unittest.TestCase):
+    def test_refuses_to_publish_empty_calendar(self):
+        config = {"team": TEAM, "calendar_name": "x", "timezone": "UTC", "api_base": "https://api.test", "output": "out.ics",
+                  "state_file": "state.json", "seasons": [{"name": "s", "competition_id": "c", "stage_ids": [1]}]}
+        with tempfile.TemporaryDirectory() as tmp:
+            config_path = Path(tmp) / "config.json"
+            config_path.write_text(json.dumps(config))
+            stderr = io.StringIO()
+            with mock.patch.object(bc, "fetch_json", return_value=[]), mock.patch.dict("os.environ", {"GAME_LOCATION": "Venue"}), \
+                    redirect_stderr(stderr):
+                code = bc.main(["--config", str(config_path)])
+            self.assertEqual(code, 1)
+            self.assertIn("refusing to publish an empty calendar", stderr.getvalue())
+            self.assertFalse((Path(tmp) / "out.ics").exists())
 
 
 class ParsingTests(unittest.TestCase):

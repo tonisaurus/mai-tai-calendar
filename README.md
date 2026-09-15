@@ -30,7 +30,18 @@ written into each event's location.
 - [`.github/workflows/update-calendar.yml`](.github/workflows/update-calendar.yml) runs the script once a
   day (14:00 UTC, a few hours after Monday night games), and on any change to the config or script, then
   commits the result. GitHub Pages serves the `docs/` folder.
-- If the API is unreachable the run fails without committing, so subscribers keep the last good calendar.
+- If the API is unreachable the run retries a few times, then fails without committing, so subscribers keep
+  the last good calendar. A run that would publish an empty calendar (for example after the league changes
+  its ids) fails the same way instead of wiping everyone's events.
+
+## Alerting
+
+- A failed run opens a GitHub issue labelled `calendar-alert` (or comments on the open one) with a link to
+  the run log, and the next successful run closes it.
+- Each run pings a [healthchecks.io](https://healthchecks.io) check stored in the `HEALTHCHECK_URL`
+  repository secret: success pings `$URL`, failure pings `$URL/fail`. If no ping arrives for a day,
+  healthchecks.io emails the owner. This also catches GitHub silently disabling the schedule, which it does
+  after 60 days without commits; re-enable it from the Actions tab if that happens.
 
 ## Next season
 

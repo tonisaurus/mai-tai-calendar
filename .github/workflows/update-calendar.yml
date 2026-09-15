@@ -13,10 +13,15 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: update-calendar
   cancel-in-progress: false
+
+env:
+  ALERT_LABEL: calendar-alert
+  RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
 jobs:
   update:
@@ -44,3 +49,51 @@ jobs:
           git add docs/mai-tai.ics state.json
           git commit -m "Update calendar $(date -u +%Y-%m-%d)"
           git push
+
+      # ---- alerting -------------------------------------------------------------------------
+      # On failure: open a GitHub issue (or comment on the existing one) and tell the dead man's
+      # switch right away. On success: close any open alert issue and ping the switch so it knows
+      # we are alive. If no ping arrives for a day, healthchecks.io emails the owner, which also
+      # catches the case where GitHub has silently disabled the scheduled workflow.
+
+      - name: Open or update the failure issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          number=$(gh issue list --label "$ALERT_LABEL" --state open --json number --jq '.[0].number')
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body "Still failing: $RUN_URL"
+          else
+            gh issue create --label "$ALERT_LABEL" --title "Calendar update is failing" --body "$(cat <<BODY
+          The scheduled calendar build failed. Subscribers keep the last published feed until this is fixed.
+
+          Failed run: $RUN_URL
+
+          Common causes: the Bond Sports API is unreachable, or the season's competition/stage ids in config.json are stale. This issue closes itself when a run succeeds again.
+          BODY
+          )"
+          fi
+
+      - name: Close the failure issue after a successful run
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for number in $(gh issue list --label "$ALERT_LABEL" --state open --json number --jq '.[].number'); do
+            gh issue close "$number" --comment "Recovered: $RUN_URL"
+          done
+
+      - name: Ping the dead man's switch
+        if: always()
+        env:
+          HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_URL }}
+          OUTCOME: ${{ job.status }}
+        run: |
+          if [ -z "$HEALTHCHECK_URL" ]; then
+            echo "HEALTHCHECK_URL secret not set; skipping."
+            exit 0
+          fi
+          suffix=""
+          [ "$OUTCOME" = "success" ] || suffix="/fail"
+          curl -fsS -m 10 --retry 3 -o /dev/null "$HEALTHCHECK_URL$suffix"
