@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """Build an iCalendar (.ics) feed of one team's games from the Bond Sports public API.
 
-Reads config.json, fetches the schedule and standings for every configured stage,
-and writes a subscribable .ics file. Each game keeps a stable UID (the Bond Sports
-event id), so rescheduled games, posted scores and standings changes show up as
-updates to existing calendar events rather than duplicates.
+Seasons are discovered automatically: the program's season list is filtered by name,
+each season is mapped to its competition and stages, and the schedule, standings and
+scoring rules are fetched from there. Finished seasons are cached in the repository so
+their results stay in the calendar without being refetched every run.
+
+Each game keeps a stable UID (the Bond Sports event id), so rescheduled games, posted
+scores and standings changes show up as updates to existing calendar events rather
+than duplicates.
 
 Stdlib only, so it runs anywhere Python 3.9+ is installed.
 """
@@ -31,15 +35,14 @@ from zoneinfo import ZoneInfo
 FEATURED_WINDOW = timedelta(days=8)
 FEATURED_GRACE = timedelta(hours=24)
 
-REGULAR_SEASON = "Regular Season"
-FINAL = "final"
+# A season is fetched live from this long before it starts (so the schedule appears
+# as soon as the league publishes it) until this long after it ends (so late score
+# corrections are picked up). Outside that window it is served from the cache.
+LIVE_BEFORE_START = timedelta(days=45)
+LIVE_AFTER_END = timedelta(days=21)
 
-# League points, used when rebuilding the table as it stood after a past game. Ranking ties are
-# broken by fewest goals against, then goal difference, then goals for; this is the only simple
-# rule that reproduces the API's own ordering (see standings_mismatch, which warns if it stops
-# matching).
-WIN_POINTS = 3
-TIE_POINTS = 1
+REGULAR_SEASON = "regular_season"
+FINAL = "final"
 CANCELLED_STATUSES = {"cancelled", "canceled"}
 
 ICS_LINE_LIMIT = 75  # octets, per RFC 5545 section 3.1
@@ -62,6 +65,7 @@ class Team:
 class Game:
     event_id: int
     stage_name: str
+    stage_type: str
     status: str
     start: datetime
     end: datetime
@@ -71,6 +75,7 @@ class Game:
     note: Optional[str]
     overtime: bool
     shootout: bool
+    season_id: int = 0
     division_id: Optional[int] = None
     division_name: Optional[str] = None
     counts_for_standings: bool = True
@@ -127,6 +132,33 @@ class Standings:
         return next((row for row in self.rows if same_team(row.team, team)), None)
 
 
+# Applied after the league's published ranking criteria, so teams the rules leave tied are
+# still ordered the way readers expect rather than alphabetically.
+FALLBACK_CRITERIA = ("point_differential", "points_scored")
+
+
+@dataclass(frozen=True)
+class Ruleset:
+    """League points and ranking criteria, as published by the API's stage ruleset."""
+    win: int = 3
+    tie: int = 1
+    loss: int = 0
+    criteria: tuple[str, ...] = ("league_points", "head_to_head_record", "points_against")
+
+    @property
+    def ranking(self) -> tuple[str, ...]:
+        return self.criteria + tuple(c for c in FALLBACK_CRITERIA if c not in self.criteria)
+
+
+@dataclass(frozen=True)
+class Season:
+    id: int
+    name: str
+    games: list[Game]
+    standings: Optional[Standings]  # the league's live table, when the season is current
+    ruleset: Ruleset
+
+
 def same_team(a: Optional[str], b: Optional[str]) -> bool:
     """Bond Sports team names carry trailing whitespace, so compare loosely."""
     if a is None or b is None:
@@ -149,13 +181,15 @@ def fetch_json(url: str):
     """GET a JSON document, retrying transient failures (network errors, 5xx) with backoff.
 
     4xx responses are returned to the caller immediately: they mean the URL is wrong
-    (e.g. a stale competition id), and retrying will not fix that.
+    (e.g. a stale competition id), and retrying will not fix that. An empty body
+    (which the API uses for "nothing here yet") comes back as None.
     """
     request = urllib.request.Request(url, headers={"User-Agent": "team-calendar/1.0"})
     for attempt in range(1, FETCH_ATTEMPTS + 1):
         try:
             with urllib.request.urlopen(request, timeout=30) as response:
-                return json.load(response)
+                body = response.read()
+            return json.loads(body) if body.strip() else None
         except urllib.error.HTTPError as exc:
             if exc.code < 500 or attempt == FETCH_ATTEMPTS:
                 raise
@@ -176,13 +210,14 @@ def parse_datetime(value: str) -> datetime:
     return datetime.fromisoformat(value).astimezone(timezone.utc)
 
 
-def parse_games(raw: list) -> list[Game]:
+def parse_games(raw: list, season_id: int, stage_type: str) -> list[Game]:
     games = []
     for item in raw:
         games.append(
             Game(
                 event_id=int(item["eventId"]),
-                stage_name=item.get("stageName") or REGULAR_SEASON,
+                stage_name=item.get("stageName") or "Regular Season",
+                stage_type=stage_type,
                 status=(item.get("status") or "scheduled").lower(),
                 start=parse_datetime(item["startDateTime"]),
                 end=parse_datetime(item["endDateTime"]),
@@ -192,6 +227,7 @@ def parse_games(raw: list) -> list[Game]:
                 note=item.get("publicNote"),
                 overtime=bool(item.get("overtime")),
                 shootout=bool(item.get("shootout")),
+                season_id=season_id,
                 division_id=item["homeTeam"].get("divisionId"),
                 division_name=item["homeTeam"].get("divisionName"),
                 counts_for_standings=item.get("includedInStandings") is True,
@@ -200,9 +236,9 @@ def parse_games(raw: list) -> list[Game]:
     return games
 
 
-def parse_standings(raw: list, team: str) -> Optional[Standings]:
+def parse_standings(raw: Optional[list], team: str) -> Optional[Standings]:
     """Return the standings of the division containing `team`, if any."""
-    for division in raw:
+    for division in raw or []:
         rows = []
         for entry in division.get("standings", []):
             played = entry.get("gamesPlayed") or 0
@@ -230,7 +266,141 @@ def parse_standings(raw: list, team: str) -> Optional[Standings]:
     return None
 
 
+def parse_ruleset(raw: Optional[dict]) -> Ruleset:
+    if not raw:
+        return Ruleset()
+    default = Ruleset()
+    return Ruleset(
+        win=raw.get("pointsForWin", default.win),
+        tie=raw.get("pointsForTie", default.tie),
+        loss=raw.get("pointsForLoss", default.loss),
+        criteria=tuple(raw.get("rankingCriteria") or default.criteria),
+    )
+
+
+# ----------------------------------------------------------------------- discovery
+
+
+def discover_seasons(api_base: str, program_id: int, name_contains: Optional[str]) -> list[dict]:
+    """The program's seasons whose name contains the configured text (case-insensitive)."""
+    listing = fetch_json(f"{api_base}/programs-seasons/program/{program_id}") or {}
+    seasons = listing.get("data", []) if isinstance(listing, dict) else listing
+    needle = (name_contains or "").strip().casefold()
+    return [
+        {"id": int(s["id"]), "name": s["name"], "startDate": s["startDate"], "endDate": s["endDate"]}
+        for s in seasons
+        if needle in s["name"].casefold()
+    ]
+
+
+def season_is_live(season: dict, today: date) -> bool:
+    start = date.fromisoformat(season["startDate"]) - LIVE_BEFORE_START
+    end = date.fromisoformat(season["endDate"]) + LIVE_AFTER_END
+    return start <= today <= end
+
+
+def season_is_over(season: dict, today: date) -> bool:
+    return date.fromisoformat(season["endDate"]) + LIVE_AFTER_END < today
+
+
+def fetch_season(api_base: str, season: dict, team: str) -> Optional[dict]:
+    """Fetch everything about one season as raw API responses, or None if it has no competition yet."""
+    competition = fetch_json(f"{api_base}/program_seasons/{season['id']}/competition")
+    if not competition or not competition.get("uuid"):
+        return None
+    stages = [
+        {"id": int(s["id"]), "name": s.get("name") or "", "stageType": s.get("stageType") or ""}
+        for s in competition.get("stages") or []
+    ]
+    # Regular season first: it is where the standings and the ruleset live.
+    stages.sort(key=lambda s: s["stageType"] != REGULAR_SEASON)
+
+    base = f"{api_base}/competitions/{competition['uuid']}/stages"
+    games = {str(s["id"]): fetch_json(f"{base}/{s['id']}/game-scores") or [] for s in stages}
+
+    standings: list = []
+    for stage in stages:
+        raw = fetch_json(f"{base}/{stage['id']}/standings") or []
+        if parse_standings(raw, team):
+            standings = raw
+            break
+
+    ruleset = None
+    if stages:
+        try:
+            ruleset = fetch_json(f"{base}/{stages[0]['id']}/ruleset")
+        except urllib.error.HTTPError as exc:
+            if exc.code != 404:
+                raise
+
+    return {
+        "season": season,
+        "competition": {"uuid": competition["uuid"], "stages": stages},
+        "ruleset": ruleset,
+        "standings": standings,
+        "games": games,
+    }
+
+
+def parse_season(bundle: dict, team: str) -> Optional[Season]:
+    """Turn a raw bundle into a Season, or None when the team does not take part in it."""
+    season_id = int(bundle["season"]["id"])
+    games: list[Game] = []
+    for stage in bundle["competition"]["stages"]:
+        games.extend(parse_games(bundle["games"].get(str(stage["id"]), []), season_id, stage["stageType"]))
+    standings = parse_standings(bundle.get("standings"), team)
+    if standings is None and not any(g.involves(team) for g in games):
+        return None
+    return Season(
+        id=season_id,
+        name=bundle["season"]["name"],
+        games=games,
+        standings=standings,
+        ruleset=parse_ruleset(bundle.get("ruleset")),
+    )
+
+
+def load_seasons(config: dict, cache_dir: Path, today: date) -> list[Season]:
+    """Every season the team plays in: live ones from the API, finished ones from the cache.
+
+    A finished season that is not cached yet is fetched once and cached. Cached seasons that have
+    dropped off the program's listing are kept, so old results never disappear from the calendar.
+    """
+    api_base, team = config["api_base"], config["team"]
+    cached = {int(p.stem): json.loads(p.read_text(encoding="utf-8")) for p in cache_dir.glob("*.json")}
+    listed = discover_seasons(api_base, config["program_id"], config.get("season_name_contains"))
+
+    bundles: dict[int, dict] = {}
+    for season in listed:
+        if season_is_live(season, today) or (season_is_over(season, today) and season["id"] not in cached):
+            bundle = fetch_season(api_base, season, team)
+            if bundle is None:
+                continue  # the league has not built this season's schedule yet
+            bundles[season["id"]] = bundle
+            cache_dir.mkdir(parents=True, exist_ok=True)
+            (cache_dir / f"{season['id']}.json").write_text(json.dumps(bundle, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        elif season["id"] in cached:
+            bundles[season["id"]] = cached[season["id"]]
+    for season_id, bundle in cached.items():
+        bundles.setdefault(season_id, bundle)
+
+    seasons = [parse_season(b, team) for b in bundles.values()]
+    return sorted((s for s in seasons if s is not None), key=lambda s: min((g.start for g in s.games), default=datetime.max.replace(tzinfo=timezone.utc)))
+
+
 # ----------------------------------------------------------------- standings history
+
+
+@dataclass
+class Tally:
+    wins: int = 0
+    losses: int = 0
+    ties: int = 0
+    goals_for: int = 0
+    goals_against: int = 0
+
+    def points(self, rules: Ruleset) -> int:
+        return self.wins * rules.win + self.ties * rules.tie + self.losses * rules.loss
 
 
 def counted_games(games: list[Game], division_id: Optional[int], tz: ZoneInfo, through: Optional[date] = None) -> list[Game]:
@@ -242,50 +412,92 @@ def counted_games(games: list[Game], division_id: Optional[int], tz: ZoneInfo, t
     ]
 
 
-def compute_standings(games: list[Game], division_id: Optional[int], tz: ZoneInfo, through: Optional[date] = None) -> Standings:
+def rank_teams(tally: dict[str, Tally], results: list[Game], rules: Ruleset) -> list[str]:
+    """Order teams by the league's ranking criteria, applied in turn to break ties.
+
+    Supported criteria are the ones Bond Sports publishes: league_points, head_to_head_record
+    (points earned in games among the tied teams), points_against, point_differential,
+    points_scored and wins. Anything still tied after the fallbacks is ordered by name.
+    """
+    def head_to_head(team: str, group: list[str]) -> int:
+        points = 0
+        for g in results:
+            home, away = clean_name(g.home.name), clean_name(g.away.name)
+            if team not in (home, away) or not {home, away} <= set(group):
+                continue
+            ours, theirs = (g.home.score, g.away.score) if home == team else (g.away.score, g.home.score)
+            points += rules.win if ours > theirs else rules.tie if ours == theirs else rules.loss
+        return points
+
+    def metric(criterion: str, team: str, group: list[str]) -> int:
+        t = tally[team]
+        return {
+            "league_points": lambda: t.points(rules),
+            "head_to_head_record": lambda: head_to_head(team, group),
+            "points_against": lambda: -t.goals_against,
+            "point_differential": lambda: t.goals_for - t.goals_against,
+            "points_scored": lambda: t.goals_for,
+            "wins": lambda: t.wins,
+        }.get(criterion, lambda: 0)()
+
+    def order(group: list[str], criteria: tuple[str, ...]) -> list[str]:
+        if len(group) == 1:
+            return group
+        if not criteria:
+            return sorted(group, key=str.casefold)
+        keyed = {team: metric(criteria[0], team, group) for team in group}
+        ordered: list[str] = []
+        for value in sorted(set(keyed.values()), reverse=True):
+            ordered.extend(order([team for team in group if keyed[team] == value], criteria[1:]))
+        return ordered
+
+    return order(sorted(tally), rules.ranking)
+
+
+def compute_standings(games: list[Game], division_id: Optional[int], tz: ZoneInfo, rules: Ruleset, through: Optional[date] = None) -> Standings:
     """Rebuild a division table from results, as it stood at the end of `through` (default: now)."""
     division_games = [g for g in games if g.division_id == division_id]
-    tally: dict[str, dict[str, int]] = {}
+    tally: dict[str, Tally] = {}
     for g in division_games:
         for name in (g.home.name, g.away.name):
             if name:
-                tally.setdefault(clean_name(name), {"wins": 0, "losses": 0, "ties": 0, "gf": 0, "ga": 0})
+                tally.setdefault(clean_name(name), Tally())
 
-    for g in counted_games(division_games, division_id, tz, through):
+    results = counted_games(division_games, division_id, tz, through)
+    for g in results:
         home, away = tally[clean_name(g.home.name)], tally[clean_name(g.away.name)]
         hs, as_ = g.home.score, g.away.score
-        home["gf"] += hs; home["ga"] += as_
-        away["gf"] += as_; away["ga"] += hs
+        home.goals_for += hs; home.goals_against += as_
+        away.goals_for += as_; away.goals_against += hs
         if hs > as_:
-            home["wins"] += 1; away["losses"] += 1
+            home.wins += 1; away.losses += 1
         elif hs < as_:
-            away["wins"] += 1; home["losses"] += 1
+            away.wins += 1; home.losses += 1
         else:
-            home["ties"] += 1; away["ties"] += 1
+            home.ties += 1; away.ties += 1
 
-    unranked = [
-        Standing(team=name, rank=0, wins=t["wins"], losses=t["losses"], ties=t["ties"],
-                 points=t["wins"] * WIN_POINTS + t["ties"] * TIE_POINTS, goals_for=t["gf"], goals_against=t["ga"])
-        for name, t in tally.items()
+    rows = [
+        Standing(team=name, rank=rank, wins=tally[name].wins, losses=tally[name].losses, ties=tally[name].ties,
+                 points=tally[name].points(rules), goals_for=tally[name].goals_for, goals_against=tally[name].goals_against)
+        for rank, name in enumerate(rank_teams(tally, results, rules), start=1)
     ]
-    unranked.sort(key=lambda r: (-r.points, r.goals_against, -r.goal_diff, -r.goals_for, r.team.casefold()))
-    rows = [Standing(**{**vars(r), "rank": i}) for i, r in enumerate(unranked, start=1)]
     division_name = next((g.division_name for g in division_games if g.division_name), "") or ""
     return Standings(division=division_name, rows=rows, division_id=division_id)
 
 
-def standings_after(game: Game, games: list[Game], api: Optional[Standings], tz: ZoneInfo) -> Standings:
+def standings_after(game: Game, season: Season, tz: ZoneInfo) -> Standings:
     """The table as it stood at the end of the day `game` was played.
 
     When that day is the latest with results, the league's own table is current and its ranks are
     authoritative, so prefer it; otherwise rebuild the table from results up to that day.
     """
     through = game.start.astimezone(tz).date()
+    api = season.standings
     if api is not None and api.division_id == game.division_id:
-        latest = max((g.start.astimezone(tz).date() for g in counted_games(games, game.division_id, tz)), default=None)
+        latest = max((g.start.astimezone(tz).date() for g in counted_games(season.games, game.division_id, tz)), default=None)
         if latest is not None and latest <= through:
             return api
-    return compute_standings(games, game.division_id, tz, through)
+    return compute_standings(season.games, game.division_id, tz, season.ruleset, through)
 
 
 def standings_mismatch(api: Standings, computed: Standings) -> list[str]:
@@ -298,23 +510,21 @@ def standings_mismatch(api: Standings, computed: Standings) -> list[str]:
            [f"computed: {r.rank}. {r.team} {r.record} {r.points} pts" for r in computed.rows]
 
 
-def load_season(api_base: str, season: dict, team: str) -> tuple[list[Game], Optional[Standings]]:
-    games: list[Game] = []
-    standings: Optional[Standings] = None
-    for stage_id in season["stage_ids"]:
-        base = f"{api_base}/competitions/{season['competition_id']}/stages/{stage_id}"
-        games.extend(parse_games(fetch_json(f"{base}/game-scores")))
-        if standings is None:
-            standings = parse_standings(fetch_json(f"{base}/standings"), team)
-    return games, standings
-
-
 # ------------------------------------------------------------------------ selection
 
 
-def select_games(games: list[Game], team: str) -> list[Game]:
-    """Our games, plus unassigned placeholder slots (e.g. playoff times not yet bracketed)."""
-    return sorted((g for g in games if g.involves(team) or g.is_placeholder), key=lambda g: g.start)
+def select_games(games: list[Game], team: str, now: datetime) -> list[Game]:
+    """Our games, plus upcoming unassigned playoff slots.
+
+    Regular-season placeholders are skipped because a freshly created season can be nothing but
+    placeholders, and past ones are skipped because a slot that was never assigned is just noise.
+    """
+    def keep(g: Game) -> bool:
+        if g.involves(team):
+            return True
+        return g.is_placeholder and g.stage_type != REGULAR_SEASON and g.end >= now
+
+    return sorted((g for g in games if keep(g)), key=lambda g: g.start)
 
 
 def pick_featured(games: list[Game], now: datetime) -> Optional[Game]:
@@ -359,7 +569,7 @@ def result_letter(game: Game, team: str) -> str:
 
 
 def stage_prefix(game: Game) -> str:
-    return "" if game.stage_name == REGULAR_SEASON else f"{game.stage_name}: "
+    return "" if game.stage_type == REGULAR_SEASON else f"{game.stage_name}: "
 
 
 def build_summary(game: Game, team: str, featured: bool, standings: Optional[Standings]) -> str:
@@ -368,7 +578,7 @@ def build_summary(game: Game, team: str, featured: bool, standings: Optional[Sta
         return f"CANCELLED: {stage_prefix(game)}{home} vs {away}"
     if game.is_placeholder:
         return f"{stage_prefix(game)}TBD"
-    if game.is_final and game.home.score is not None and game.away.score is not None:
+    if game.has_result:
         tags = [t for t in (result_letter(game, team), "OT" if game.overtime else "", "SO" if game.shootout else "") if t]
         suffix = f" ({', '.join(tags)})" if tags else ""
         return f"{stage_prefix(game)}{home} {game.home.score} - {game.away.score} {away}{suffix}"
@@ -401,7 +611,7 @@ def build_description(game: Game, team: str, standings: Optional[Standings]) -> 
         lines.append(f"Final: {home} {game.home.score} - {game.away.score} {away}{suffix}")
     else:
         lines.append(f"{home} (home) vs {away} (away)")
-        if game.stage_name != REGULAR_SEASON:
+        if game.stage_type != REGULAR_SEASON:
             lines.append(game.stage_name)
 
     if game.field:
@@ -510,21 +720,23 @@ def next_state(previous: Optional[dict], digest: str, now: datetime) -> dict:
 # ----------------------------------------------------------------------------- main
 
 
-def build(config: dict, games: list[Game], standings: Optional[Standings], state: dict, now: datetime, location: str) -> tuple[str, dict]:
+def build(config: dict, seasons: list[Season], state: dict, now: datetime, location: str) -> tuple[str, dict]:
     team = config["team"]
     tz = ZoneInfo(config["timezone"])
-    ours = select_games(games, team)
+    by_id = {season.id: season for season in seasons}
+    ours = select_games([g for season in seasons for g in season.games], team, now)
     featured = pick_featured(ours, now)
 
     events = []
     new_state = {}
     for game in ours:
+        season = by_id[game.season_id]
         is_featured = game is featured
-        summary = build_summary(game, team, is_featured, standings)
+        summary = build_summary(game, team, is_featured, season.standings)
         if is_featured:
-            table = standings
+            table = season.standings
         elif game.has_result:
-            table = standings_after(game, games, standings, tz)
+            table = standings_after(game, season, tz)
         else:
             table = None
         description = build_description(game, team, table)
@@ -552,32 +764,28 @@ def main(argv: Optional[list[str]] = None) -> int:
 
     root = args.config.resolve().parent
     config = json.loads(args.config.read_text(encoding="utf-8"))
+    tz = ZoneInfo(config["timezone"])
     now = datetime.now(timezone.utc).replace(microsecond=0)
 
-    games: list[Game] = []
-    standings: Optional[Standings] = None
-    for season in config["seasons"]:
-        try:
-            season_games, season_standings = load_season(config["api_base"], season, config["team"])
-        except (urllib.error.URLError, ValueError, KeyError) as exc:
-            print(f"error: failed to load season {season['name']!r}: {exc}", file=sys.stderr)
-            return 1
-        games.extend(season_games)
-        # The most recently listed season with standings wins, so the current season goes last in config.
-        standings = season_standings or standings
+    try:
+        seasons = load_seasons(config, root / config["cache_dir"], now.astimezone(tz).date())
+    except (urllib.error.URLError, ValueError, KeyError) as exc:
+        print(f"error: failed to load seasons: {exc}", file=sys.stderr)
+        return 1
 
-    if standings is not None:
-        current = compute_standings(games, standings.division_id, ZoneInfo(config["timezone"]))
-        for line in standings_mismatch(standings, current):
-            print(f"warning: rebuilt standings differ from the API's ({line})", file=sys.stderr)
+    for season in seasons:
+        if season.standings is not None:
+            current = compute_standings(season.games, season.standings.division_id, tz, season.ruleset)
+            for line in standings_mismatch(season.standings, current):
+                print(f"warning: rebuilt standings for {season.name!r} differ from the API's ({line})", file=sys.stderr)
 
     state_path = root / config["state_file"]
-    calendar, new_state = build(config, games, standings, load_state(state_path), now, location)
+    calendar, new_state = build(config, seasons, load_state(state_path), now, location)
 
     # An empty feed would delete every event from every subscriber's calendar, so treat it as an
-    # error (most likely a stale competition or stage id in config.json) rather than publishing it.
+    # error (most likely a wrong program id or season filter in config.json) rather than publishing it.
     if not new_state:
-        print(f"error: the API returned no games for {config['team']!r}; refusing to publish an empty calendar", file=sys.stderr)
+        print(f"error: found no games for {config['team']!r}; refusing to publish an empty calendar", file=sys.stderr)
         return 1
 
     if args.dry_run:
@@ -588,7 +796,8 @@ def main(argv: Optional[list[str]] = None) -> int:
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(calendar.encode("utf-8"))  # bytes, so CRLF line endings survive on every platform
     state_path.write_text(json.dumps(new_state, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(f"wrote {output.relative_to(root)} with {len(new_state)} events")
+    print(f"wrote {output.relative_to(root)} with {len(new_state)} events from {len(seasons)} season(s): "
+          + ", ".join(s.name for s in seasons))
     return 0
 
 

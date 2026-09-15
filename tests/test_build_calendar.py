@@ -18,13 +18,18 @@ NOW = datetime(2026, 9, 14, 12, 0, tzinfo=timezone.utc)
 
 
 def game(event_id=1, home="Mai Tai ", away="Barracuda ", status="scheduled", start=NOW + timedelta(days=1),
-         home_score=None, away_score=None, stage="Regular Season", overtime=False, shootout=False, division_id=907):
+         home_score=None, away_score=None, stage="Regular Season", overtime=False, shootout=False, division_id=907,
+         season_id=1):
     return bc.Game(
-        event_id=event_id, stage_name=stage, status=status, start=start, end=start + timedelta(minutes=45),
-        home=bc.Team(home, home_score), away=bc.Team(away, away_score), field="Field 1", note=None,
-        overtime=overtime, shootout=shootout, division_id=division_id, division_name="Div",
-        counts_for_standings=status == "final",
+        event_id=event_id, stage_name=stage, stage_type=stage.lower().replace(" ", "_"), status=status, start=start,
+        end=start + timedelta(minutes=45), home=bc.Team(home, home_score), away=bc.Team(away, away_score),
+        field="Field 1", note=None, overtime=overtime, shootout=shootout, season_id=season_id,
+        division_id=division_id, division_name="Div", counts_for_standings=status == "final",
     )
+
+
+def season(games, standings=None, season_id=1, ruleset=bc.Ruleset()):
+    return bc.Season(id=season_id, name="Season", games=games, standings=standings, ruleset=ruleset)
 
 
 def played(event_id, home, away, home_score, away_score, days_ago):
@@ -92,11 +97,14 @@ class SummaryTests(unittest.TestCase):
 
 
 class SelectionTests(unittest.TestCase):
-    def test_select_games_keeps_ours_and_placeholders_sorted(self):
+    def test_select_games_keeps_ours_and_upcoming_playoff_placeholders_sorted(self):
         ours = game(1, start=NOW + timedelta(days=3))
         theirs = game(2, home="Phantom FC ", away="Barracuda ")
         placeholder = game(3, home=None, away=None, stage="Playoffs", start=NOW + timedelta(days=10))
-        self.assertEqual([g.event_id for g in bc.select_games([placeholder, theirs, ours], TEAM)], [1, 3])
+        past_placeholder = game(4, home=None, away=None, stage="Playoffs", start=NOW - timedelta(days=60))
+        regular_placeholder = game(5, home=None, away=None, start=NOW + timedelta(days=20))
+        selected = bc.select_games([placeholder, theirs, ours, past_placeholder, regular_placeholder], TEAM, NOW)
+        self.assertEqual([g.event_id for g in selected], [1, 3])
 
     def test_featured_is_next_unplayed_game_within_window(self):
         played = game(1, status="final", home_score=1, away_score=0, start=NOW - timedelta(days=7))
@@ -129,8 +137,8 @@ class StandingsHistoryTests(unittest.TestCase):
         return [(r.rank, r.team, r.record, r.points, r.goals_for, r.goals_against) for r in standings.rows]
 
     def test_records_points_and_tiebreaks(self):
-        standings = bc.compute_standings(self.GAMES, 907, self.TZ)
-        # A and B are both 1-1 with 3 pts; A has GA 2 vs B's GA 3, so A ranks first. D 1-0-1 leads with 4.
+        standings = bc.compute_standings(self.GAMES, 907, self.TZ, bc.Ruleset())
+        # A and B are both 1-1 with 3 pts and split their head-to-head; A has GA 2 vs B's GA 3, so A ranks first.
         self.assertEqual(self.table(standings), [
             (1, "D", "1-0-1", 4, 3, 2), (2, "A", "1-1", 3, 3, 2), (3, "B", "1-1", 3, 2, 3), (4, "C", "0-1-1", 1, 2, 3),
         ])
@@ -138,22 +146,40 @@ class StandingsHistoryTests(unittest.TestCase):
         self.assertEqual(standings.division, "Div")
 
     def test_cutoff_only_counts_games_through_that_day(self):
-        week1 = bc.compute_standings(self.GAMES, 907, self.TZ, through=(NOW - timedelta(days=14)).astimezone(self.TZ).date())
+        week1 = bc.compute_standings(self.GAMES, 907, self.TZ, bc.Ruleset(), through=(NOW - timedelta(days=14)).astimezone(self.TZ).date())
         self.assertEqual(self.table(week1), [
             (1, "A", "1-0", 3, 3, 1), (2, "C", "0-0-1", 1, 2, 2), (3, "D", "0-0-1", 1, 2, 2), (4, "B", "0-1", 0, 1, 3),
         ])
 
     def test_standings_after_uses_api_table_for_latest_week_and_rebuilds_older_weeks(self):
         api = bc.Standings(division="Div", rows=[bc.Standing("B", 1, 1, 1, 0, 3, 2, 3)], division_id=907)
-        self.assertIs(bc.standings_after(self.GAMES[2], self.GAMES, api, self.TZ), api)
-        older = bc.standings_after(self.GAMES[0], self.GAMES, api, self.TZ)
+        self.assertIs(bc.standings_after(self.GAMES[2], season(self.GAMES, api), self.TZ), api)
+        older = bc.standings_after(self.GAMES[0], season(self.GAMES, api), self.TZ)
         self.assertIsNot(older, api)
         self.assertEqual(older.for_team("A").record, "1-0")
         other_division = bc.Standings(division="Other", rows=[], division_id=1)
-        self.assertIsNot(bc.standings_after(self.GAMES[2], self.GAMES, other_division, self.TZ), other_division)
+        self.assertIsNot(bc.standings_after(self.GAMES[2], season(self.GAMES, other_division), self.TZ), other_division)
+
+    def test_head_to_head_breaks_ties_before_goals_against(self):
+        # P and Q both 2-1 on 6 pts. Q conceded fewer goals overall, but P won their meeting, so P ranks first.
+        games = [
+            played(1, "P ", "Q ", 1, 0, 21), played(2, "P ", "R ", 0, 5, 14), played(3, "P ", "S ", 2, 0, 7),
+            played(4, "Q ", "R ", 3, 0, 14), played(5, "Q ", "S ", 1, 0, 7), played(6, "R ", "S ", 0, 1, 21),
+        ]
+        rows = bc.compute_standings(games, 907, self.TZ, bc.Ruleset()).rows
+        self.assertEqual([(r.team, r.points, r.goals_against) for r in rows[:2]], [("P", 6, 5), ("Q", 6, 1)])
+
+    def test_ruleset_points_and_fallback_criteria(self):
+        # Two-point wins, and nothing in the published criteria separates E and F (never met, same GA):
+        # the fallback goal-difference criterion does.
+        rules = bc.Ruleset(win=2, tie=1, loss=0, criteria=("league_points", "points_against"))
+        games = [played(1, "E ", "G ", 4, 1, 7), played(2, "F ", "H ", 2, 1, 7)]
+        rows = bc.compute_standings(games, 907, self.TZ, rules).rows
+        self.assertEqual([(r.team, r.points) for r in rows], [("E", 2), ("F", 2), ("H", 0), ("G", 0)])
+        self.assertEqual(rules.ranking, ("league_points", "points_against", "point_differential", "points_scored"))
 
     def test_mismatch_detection(self):
-        computed = bc.compute_standings(self.GAMES, 907, self.TZ)
+        computed = bc.compute_standings(self.GAMES, 907, self.TZ, bc.Ruleset())
         self.assertEqual(bc.standings_mismatch(computed, computed), [])
         swapped = bc.Standings(division="Div", rows=[computed.rows[1], computed.rows[0]] + computed.rows[2:], division_id=907)
         self.assertTrue(bc.standings_mismatch(swapped, computed))
@@ -208,8 +234,9 @@ class BuildTests(unittest.TestCase):
 
     def test_build_is_stable_when_nothing_changes(self):
         games = [game(1, status="final", home_score=3, away_score=1, start=NOW - timedelta(days=7)), game(2)]
-        calendar, state = bc.build(self.CONFIG, games, STANDINGS, {}, NOW, self.LOCATION)
-        again, state2 = bc.build(self.CONFIG, games, STANDINGS, state, NOW + timedelta(days=1), self.LOCATION)
+        seasons = [season(games, STANDINGS)]
+        calendar, state = bc.build(self.CONFIG, seasons, {}, NOW, self.LOCATION)
+        again, state2 = bc.build(self.CONFIG, seasons, state, NOW + timedelta(days=1), self.LOCATION)
         self.assertEqual(calendar, again)
         self.assertEqual(state, state2)
         self.assertIn("UID:bondsports-event-2@mai-tai-calendar", calendar)
@@ -219,10 +246,9 @@ class BuildTests(unittest.TestCase):
         self.assertTrue(calendar.endswith("END:VCALENDAR\r\n"))
 
     def test_rescheduled_game_bumps_sequence(self):
-        games = [game(1)]
-        _, state = bc.build(self.CONFIG, games, STANDINGS, {}, NOW, self.LOCATION)
-        moved = [game(1, start=NOW + timedelta(days=2))]
-        calendar, state2 = bc.build(self.CONFIG, moved, STANDINGS, state, NOW + timedelta(hours=1), self.LOCATION)
+        _, state = bc.build(self.CONFIG, [season([game(1)], STANDINGS)], {}, NOW, self.LOCATION)
+        moved = [season([game(1, start=NOW + timedelta(days=2))], STANDINGS)]
+        calendar, state2 = bc.build(self.CONFIG, moved, state, NOW + timedelta(hours=1), self.LOCATION)
         self.assertEqual(state2["bondsports-event-1@mai-tai-calendar"]["sequence"], 1)
         self.assertIn("SEQUENCE:1", calendar)
 
@@ -239,6 +265,11 @@ class FetchTests(unittest.TestCase):
             self.assertEqual(bc.fetch_json("https://example.test"), {"ok": 1})
         self.assertEqual(urlopen.call_count, 3)
         self.assertEqual([c.args[0] for c in sleep.call_args_list], [5, 10])
+
+    def test_empty_body_means_nothing_here_yet(self):
+        body = io.BytesIO(b"")
+        with mock.patch.object(bc.urllib.request, "urlopen", return_value=mock.MagicMock(__enter__=lambda s: body, __exit__=lambda *a: False)):
+            self.assertIsNone(bc.fetch_json("https://example.test"))
 
     def test_does_not_retry_client_errors(self):
         with mock.patch.object(bc.urllib.request, "urlopen", side_effect=urllib.error.HTTPError("u", 404, "gone", {}, None)) as urlopen, \
@@ -259,17 +290,82 @@ class FetchTests(unittest.TestCase):
 class MainTests(unittest.TestCase):
     def test_refuses_to_publish_empty_calendar(self):
         config = {"team": TEAM, "calendar_name": "x", "timezone": "UTC", "api_base": "https://api.test", "output": "out.ics",
-                  "state_file": "state.json", "seasons": [{"name": "s", "competition_id": "c", "stage_ids": [1]}]}
+                  "state_file": "state.json", "cache_dir": "seasons", "program_id": 1, "season_name_contains": "Monday"}
         with tempfile.TemporaryDirectory() as tmp:
             config_path = Path(tmp) / "config.json"
             config_path.write_text(json.dumps(config))
             stderr = io.StringIO()
-            with mock.patch.object(bc, "fetch_json", return_value=[]), mock.patch.dict("os.environ", {"GAME_LOCATION": "Venue"}), \
+            with mock.patch.object(bc, "fetch_json", return_value={"data": []}), mock.patch.dict("os.environ", {"GAME_LOCATION": "Venue"}), \
                     redirect_stderr(stderr):
                 code = bc.main(["--config", str(config_path)])
             self.assertEqual(code, 1)
             self.assertIn("refusing to publish an empty calendar", stderr.getvalue())
             self.assertFalse((Path(tmp) / "out.ics").exists())
+
+
+class DiscoveryTests(unittest.TestCase):
+    LISTING = {"data": [
+        {"id": 1, "name": "01. Monday Women's May-July 26", "startDate": "2026-05-18", "endDate": "2026-07-14"},
+        {"id": 2, "name": "02. Tuesday Over 30 May-July 26", "startDate": "2026-05-05", "endDate": "2026-06-24"},
+        {"id": 3, "name": "13. Monday Women's Sept-Nov 26", "startDate": "2026-09-28", "endDate": "2026-11-23"},
+    ]}
+
+    def test_discover_filters_by_name_case_insensitively(self):
+        with mock.patch.object(bc, "fetch_json", return_value=self.LISTING):
+            found = bc.discover_seasons("https://api.test", 13888, "monday women's")
+            self.assertEqual([s["id"] for s in found], [1, 3])
+            self.assertEqual(len(bc.discover_seasons("https://api.test", 13888, None)), 3)
+
+    def test_live_window(self):
+        upcoming = self.LISTING["data"][2]
+        self.assertFalse(bc.season_is_live(upcoming, bc.date(2026, 8, 1)))   # more than 45 days before start
+        self.assertTrue(bc.season_is_live(upcoming, bc.date(2026, 9, 15)))
+        self.assertTrue(bc.season_is_live(upcoming, bc.date(2026, 12, 10)))  # within 21 days after end
+        self.assertFalse(bc.season_is_live(upcoming, bc.date(2026, 12, 20)))
+        self.assertTrue(bc.season_is_over(upcoming, bc.date(2026, 12, 20)))
+
+    def bundle(self, season_id, name, home="Mai Tai "):
+        return {
+            "season": {"id": season_id, "name": name, "startDate": "2026-05-18", "endDate": "2026-07-14"},
+            "competition": {"uuid": "u", "stages": [{"id": 10, "name": "Regular Season", "stageType": "regular_season"}]},
+            "ruleset": None, "standings": [],
+            "games": {"10": [{"eventId": season_id * 100, "stageName": "Regular Season", "status": "scheduled",
+                              "startDateTime": "2026-06-01T02:00:00.000Z", "endDateTime": "2026-06-01T02:45:00.000Z",
+                              "homeTeam": {"name": home, "score": None, "divisionId": 1, "divisionName": "D"},
+                              "awayTeam": {"name": "Other ", "score": None, "divisionId": 1, "divisionName": "D"}}]},
+        }
+
+    def test_parse_season_skips_seasons_without_the_team(self):
+        self.assertIsNone(bc.parse_season(self.bundle(1, "s", home="Someone Else "), TEAM))
+        parsed = bc.parse_season(self.bundle(1, "s"), TEAM)
+        self.assertEqual([g.event_id for g in parsed.games], [100])
+
+    def test_load_seasons_fetches_live_and_uncached_seasons_and_keeps_cached_ones(self):
+        config = {"api_base": "https://api.test", "team": TEAM, "program_id": 1, "season_name_contains": "Monday"}
+        today = bc.date(2026, 9, 15)
+        with tempfile.TemporaryDirectory() as tmp:
+            cache = Path(tmp)
+            # Season 9 is cached but no longer listed by the API; season 1 is over and uncached; 3 is live.
+            (cache / "9.json").write_text(json.dumps(self.bundle(9, "old")))
+            fetched = []
+
+            def fake_fetch_season(api_base, season, team):
+                fetched.append(season["id"])
+                return None if season["id"] == 3 else self.bundle(season["id"], season["name"])
+
+            listed = [self.LISTING["data"][0], self.LISTING["data"][2]]
+            with mock.patch.object(bc, "discover_seasons", return_value=listed), \
+                    mock.patch.object(bc, "fetch_season", side_effect=fake_fetch_season):
+                seasons = bc.load_seasons(config, cache, today)
+                self.assertEqual(sorted(fetched), [1, 3])
+                self.assertEqual(sorted(s.id for s in seasons), [1, 9])
+                self.assertTrue((cache / "1.json").exists())
+
+                # Next run: season 1 is now cached, so only the live season is fetched again.
+                fetched.clear()
+                seasons = bc.load_seasons(config, cache, today)
+                self.assertEqual(fetched, [3])
+                self.assertEqual(sorted(s.id for s in seasons), [1, 9])
 
 
 class ParsingTests(unittest.TestCase):
@@ -280,9 +376,16 @@ class ParsingTests(unittest.TestCase):
             "status": "scheduled", "startDateTime": "2026-09-22T02:00:00.000Z", "endDateTime": "2026-09-22T02:45:00.000Z",
             "overtime": None, "shootout": None, "publicNote": None, "space": {"id": 7744, "name": "Field 1"},
         }]
-        (g,) = bc.parse_games(raw)
+        (g,) = bc.parse_games(raw, season_id=7, stage_type="playoffs")
         self.assertTrue(g.is_placeholder)
         self.assertEqual(g.start, datetime(2026, 9, 22, 2, 0, tzinfo=timezone.utc))
+        self.assertEqual((g.season_id, g.stage_type), (7, "playoffs"))
+
+    def test_parse_ruleset_reads_points_and_criteria(self):
+        rules = bc.parse_ruleset({"pointsForWin": 3, "pointsForTie": 1, "pointsForLoss": 0,
+                                  "rankingCriteria": ["league_points", "head_to_head_record", "points_against"]})
+        self.assertEqual(rules, bc.Ruleset())
+        self.assertEqual(bc.parse_ruleset(None), bc.Ruleset())
 
     def test_parse_standings_picks_division_with_team(self):
         raw = [

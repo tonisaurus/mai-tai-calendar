@@ -20,23 +20,29 @@ written into each event's location.
 
 ## How it works
 
-- [`build_calendar.py`](build_calendar.py) fetches `game-scores` and `standings` for every stage in
-  [`config.json`](config.json), keeps the games involving the team (plus unassigned placeholder slots),
-  and writes [`docs/mai-tai.ics`](docs/mai-tai.ics). Python 3.9+, no dependencies.
+- [`build_calendar.py`](build_calendar.py) discovers seasons on its own: it lists the program's seasons
+  (`programs-seasons/program/<program_id>`), keeps the ones whose name contains `season_name_contains`
+  (case-insensitive), maps each to its competition and stages (`program_seasons/<id>/competition`), then
+  fetches each stage's schedule and standings plus the scoring ruleset. Seasons the team does not appear in
+  are ignored. Python 3.9+, no dependencies.
+- A season is fetched live from 45 days before it starts (so the schedule shows up as soon as the league
+  publishes it) until 21 days after it ends. Finished seasons are cached as raw API responses in
+  [`seasons/`](seasons/) and served from there, so past results stay in the calendar without daily
+  refetching, even after the league drops the season from its listing.
 - Each event's `UID` is the Bond Sports `eventId`, which is stable even before a game is played, so a
   rescheduled game or a posted score updates the existing calendar entry instead of creating a new one.
 - [`state.json`](state.json) remembers a content hash per event so `SEQUENCE` and `LAST-MODIFIED` only
-  change when an event actually changes. That also means the daily run only commits when there is news.
-- Standings for past games are rebuilt from results (3 points per win, 1 per tie; ties in points broken by
-  fewest goals against, then goal difference, then goals for), which reproduces the league's own table.
-  The most recent game day uses the league's table directly, and the build logs a warning if the rebuilt
-  table ever disagrees with it, which would mean the tiebreak rule needs adjusting.
+  change when an event actually changes. That also means a run only commits when there is news.
+- Standings for past games are rebuilt from results using the league's published ruleset (points per
+  win/tie/loss and ranking criteria: league points, then head-to-head record among tied teams, then fewest
+  goals against; goal difference and goals for are applied as fallbacks). The most recent game day uses
+  the league's table directly, and the build logs a warning if the rebuilt table ever disagrees with it.
 - [`.github/workflows/update-calendar.yml`](.github/workflows/update-calendar.yml) runs the script twice a
   day (14:23 and 20:23 UTC; off the hour because GitHub drops :00 schedules under load), and on any change
   to the config or script, then commits the result. GitHub Pages serves the `docs/` folder.
 - If the API is unreachable the run retries a few times, then fails without committing, so subscribers keep
-  the last good calendar. A run that would publish an empty calendar (for example after the league changes
-  its ids) fails the same way instead of wiping everyone's events.
+  the last good calendar. A run that would publish an empty calendar fails the same way instead of wiping
+  everyone's events.
 
 ## Alerting
 
@@ -49,19 +55,13 @@ written into each event's location.
 
 ## Next season
 
-Bond Sports gives every season a new competition id and new stage ids. Find them in the network tab of
-the league's public schedule page (requests to `api.bondsports.co/v4/competitions/<id>/stages/<n>/...`),
-then add a season to `config.json`:
+Nothing to do. New seasons appear in the program listing weeks before they start and are picked up
+automatically once the league builds the schedule. The only reasons to touch `config.json` are the team
+changing its name or league (`team`, `season_name_contains`), or Sports House moving to a new Bond Sports
+program (`program_id`, the number in the league page URL).
 
-```json
-"seasons": [
-  { "name": "Jul-Sep 2026", "competition_id": "819c0134-...", "stage_ids": [853, 854] },
-  { "name": "Oct-Dec 2026", "competition_id": "<new id>", "stage_ids": [<regular>, <playoffs>] }
-]
-```
-
-Keep the newest season last: standings are taken from the last season that has them. Old seasons can stay
-so past results remain in the calendar, or be removed once their endpoints stop responding.
+API requests per run: one for the season listing, plus about five per live season (competition, ruleset,
+standings, and one per stage for scores). Nothing is fetched for cached seasons.
 
 ## Running locally
 
