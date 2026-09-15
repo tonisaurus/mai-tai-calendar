@@ -11,7 +11,7 @@ A subscribable calendar of Mai Tai's indoor soccer games, generated from the
 |---|---|
 | This week's game | `Mai Tai (3rd, 5-2) vs Milan Mujeres (2nd, 6-1)` plus the full division standings in the description |
 | Later games | `Mai Tai vs Manchester` |
-| Played games | `Mai Tai 7 - 1 Barracuda (W)` |
+| Played games | `Mai Tai 7 - 1 Barracuda (W)` plus the standings as they stood at the end of that game day |
 | Playoff slots before the bracket is set | `Playoffs: TBD` (one event per slot; slots Mai Tai does not play in disappear once matchups are announced) |
 
 The home team is always listed first. The venue address is not stored in this repository; it is set as the
@@ -27,9 +27,13 @@ written into each event's location.
   rescheduled game or a posted score updates the existing calendar entry instead of creating a new one.
 - [`state.json`](state.json) remembers a content hash per event so `SEQUENCE` and `LAST-MODIFIED` only
   change when an event actually changes. That also means the daily run only commits when there is news.
-- [`.github/workflows/update-calendar.yml`](.github/workflows/update-calendar.yml) runs the script once a
-  day (14:23 UTC, a few hours after Monday night games; off the hour because GitHub drops :00 schedules under load), and on any change to the config or script, then
-  commits the result. GitHub Pages serves the `docs/` folder.
+- Standings for past games are rebuilt from results (3 points per win, 1 per tie; ties in points broken by
+  fewest goals against, then goal difference, then goals for), which reproduces the league's own table.
+  The most recent game day uses the league's table directly, and the build logs a warning if the rebuilt
+  table ever disagrees with it, which would mean the tiebreak rule needs adjusting.
+- [`.github/workflows/update-calendar.yml`](.github/workflows/update-calendar.yml) runs the script twice a
+  day (14:23 and 20:23 UTC; off the hour because GitHub drops :00 schedules under load), and on any change
+  to the config or script, then commits the result. GitHub Pages serves the `docs/` folder.
 - If the API is unreachable the run retries a few times, then fails without committing, so subscribers keep
   the last good calendar. A run that would publish an empty calendar (for example after the league changes
   its ids) fails the same way instead of wiping everyone's events.

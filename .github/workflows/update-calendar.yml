@@ -2,10 +2,12 @@ name: Update calendar
 
 on:
   schedule:
-    # Daily at 14:23 UTC (7:23am PDT / 6:23am PST), a few hours after Monday night games finish.
-    # Off the top of the hour on purpose: GitHub delays or drops scheduled runs during the
-    # high-load window at :00, and this job was skipped entirely on its first morning at 14:00.
+    # Twice daily: 14:23 UTC (7:23am PDT / 6:23am PST, a few hours after Monday night games finish)
+    # and 20:23 UTC as a backup. Off the top of the hour on purpose: GitHub delays or drops
+    # scheduled runs during the high-load window at :00, and this job was skipped entirely on its
+    # first morning at 14:00. Runs only commit when something changed, so the second one is free.
     - cron: "23 14 * * *"
+    - cron: "23 20 * * *"
   workflow_dispatch:
   push:
     branches: [main]
