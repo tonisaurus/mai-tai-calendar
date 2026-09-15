@@ -6,58 +6,49 @@
   <title>Mai Tai Soccer Calendar</title>
   <meta name="description" content="Subscribe to the Mai Tai indoor soccer schedule in Google Calendar or Apple Calendar.">
   <style>
+    /* Rosé Pine Moon (https://rosepinetheme.com/palette) */
     :root {
-      color-scheme: light dark;
-      --bg: #f6f7f5;
-      --card: #ffffff;
-      --text: #1b1f1c;
-      --muted: #5c655f;
-      --accent: #0f7a5a;
-      --accent-text: #ffffff;
-      --border: #dfe3e0;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #141816;
-        --card: #1d2320;
-        --text: #eef1ee;
-        --muted: #a2aba5;
-        --accent: #3fbf93;
-        --accent-text: #0d1511;
-        --border: #2d3531;
-      }
+      color-scheme: dark;
+      --base: #232136;
+      --surface: #2a273f;
+      --overlay: #393552;
+      --subtle: #908caa;
+      --text: #e0def4;
+      --rose: #ea9a97;
+      --iris: #c4a7e7;
+      --highlight-med: #44415a;
+      --highlight-high: #56526e;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 2.5rem 1rem 4rem;
-      background: var(--bg);
+      background: var(--base);
       color: var(--text);
       font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
     main { max-width: 34rem; margin: 0 auto; }
     h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: -0.01em; }
-    .sub { color: var(--muted); margin: 0 0 1.75rem; }
+    .sub { color: var(--subtle); margin: 0 0 1.75rem; }
     .card {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--surface);
+      border: 1px solid var(--highlight-med);
       border-radius: 12px;
       padding: 1.25rem;
       margin-bottom: 1rem;
     }
     .card h2 { font-size: 1.05rem; margin: 0 0 .5rem; }
-    .card p { margin: 0 0 .75rem; color: var(--muted); }
+    .card p { margin: 0 0 .75rem; color: var(--subtle); }
     .btn {
       display: inline-block;
       padding: .65rem 1rem;
       border-radius: 8px;
-      background: var(--accent);
-      color: var(--accent-text);
+      background: var(--rose);
+      color: var(--base);
       font-weight: 600;
       text-decoration: none;
       margin: 0 .5rem .5rem 0;
     }
-    .btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
     .url {
       display: flex;
       gap: .5rem;
@@ -67,25 +58,25 @@
       flex: 1;
       min-width: 0;
       padding: .6rem .7rem;
-      border: 1px solid var(--border);
+      border: 1px solid var(--highlight-med);
       border-radius: 8px;
-      background: var(--bg);
+      background: var(--base);
       color: var(--text);
       font: 14px ui-monospace, SFMono-Regular, Menlo, monospace;
     }
     .url button {
       padding: .6rem .9rem;
       border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--card);
+      border: 1px solid var(--highlight-high);
+      background: var(--overlay);
       color: var(--text);
       font-weight: 600;
       cursor: pointer;
     }
-    ol { padding-left: 1.25rem; margin: .25rem 0 0; color: var(--muted); }
+    ol { padding-left: 1.25rem; margin: .25rem 0 0; color: var(--subtle); }
     li { margin-bottom: .25rem; }
-    footer { color: var(--muted); font-size: .85rem; margin-top: 2rem; }
-    footer a { color: inherit; }
+    footer { color: var(--subtle); font-size: .85rem; margin-top: 2rem; }
+    footer a { color: var(--iris); }
   </style>
 </head>
 <body>
