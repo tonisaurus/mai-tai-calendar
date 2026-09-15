@@ -377,9 +377,9 @@ def build_summary(game: Game, team: str, featured: bool, standings: Optional[Sta
     return f"{stage_prefix(game)}{home} vs {away}"
 
 
-def standings_table(standings: Standings) -> list[str]:
+def standings_table(standings: Standings, heading: str) -> list[str]:
     # Calendar apps render descriptions in proportional fonts, so keep rows compact rather than column-aligned.
-    lines = ["Standings:"]
+    lines = [heading]
     for row in standings.rows:
         lines.append(f"{row.rank}. {row.team} {row.record}, {row.points} pts, GD {row.goal_diff:+d}")
     return lines
@@ -411,7 +411,7 @@ def build_description(game: Game, team: str, standings: Optional[Standings]) -> 
 
     if standings:
         lines.append("")
-        lines.extend(standings_table(standings))
+        lines.extend(standings_table(standings, "Standings after this game:" if game.has_result else "Standings:"))
     elif not game.is_final and not game.is_placeholder and not game.is_cancelled:
         lines.append("")
         lines.append("Standings and records are added the week of the game.")

@@ -164,8 +164,11 @@ class DescriptionTests(unittest.TestCase):
         g = game(status="final", home_score=4, away_score=2, start=NOW - timedelta(days=1))
         text = bc.build_description(g, TEAM, STANDINGS)
         self.assertEqual(text.splitlines()[:5], [
-            "Final: Mai Tai 4 - 2 Barracuda (W)", "Field 1", "", "Standings:", "1. Phantom FC 7-0, 21 pts, GD +31",
+            "Final: Mai Tai 4 - 2 Barracuda (W)", "Field 1", "", "Standings after this game:", "1. Phantom FC 7-0, 21 pts, GD +31",
         ])
+
+    def test_featured_upcoming_game_uses_plain_heading(self):
+        self.assertIn("\nStandings:\n1. Phantom FC", bc.build_description(game(), TEAM, STANDINGS))
 
     def test_upcoming_non_featured_game_has_no_table(self):
         text = bc.build_description(game(), TEAM, None)
