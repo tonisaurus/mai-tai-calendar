@@ -186,7 +186,7 @@ def fetch_json(url: str):
     """GET a JSON document, retrying transient failures (network errors, 5xx) with backoff.
 
     4xx responses are returned to the caller immediately: they mean the URL is wrong
-    (e.g. a stale competition id), and retrying will not fix that. An empty body
+    (e.g. a competition the league has removed), and retrying will not fix that. An empty body
     (which the API uses for "nothing here yet") comes back as None.
     """
     request = urllib.request.Request(url, headers={"User-Agent": "team-calendar/1.0"})
