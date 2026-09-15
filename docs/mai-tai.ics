@@ -107,18 +107,14 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-5727542@mai-tai-calendar
-DTSTAMP:20260915T070300Z
-LAST-MODIFIED:20260915T070300Z
-SEQUENCE:0
+DTSTAMP:20260915T074942Z
+LAST-MODIFIED:20260915T074942Z
+SEQUENCE:1
 DTSTART:20260915T034000Z
 DTEND:20260915T042500Z
-SUMMARY:Mai Tai (3rd\, 5-2) vs Milan Mujeres (2nd\, 6-1)
-DESCRIPTION:Mai Tai (home) vs Milan Mujeres (away)\nField 1\n\nStandings - 
- 7. Monday Women's Jul-Sep 26\n1. Phantom FC 7-0\, 21 pts\, GD +31\n2. Mila
- n Mujeres 6-1\, 18 pts\, GD +23\n3. Mai Tai 5-2\, 15 pts\, GD +20\n4. Lati
- n Girls 4-3\, 12 pts\, GD +15\n5. Serendipity 3-4\, 9 pts\, GD -1\n6. Once
-  Estrellas 1-6\, 3 pts\, GD -23\n7. Manchester 1-6\, 3 pts\, GD -27\n8. Ba
- rracuda 1-6\, 3 pts\, GD -38\n\nUpdated Sep 15\, 2026 12:03 AM PDT
+SUMMARY:Mai Tai 4 - 2 Milan Mujeres (W)
+DESCRIPTION:Final: Mai Tai 4 - 2 Milan Mujeres (Mai Tai won)\nField 1\n\nUp
+ dated Sep 15\, 2026 12:49 AM PDT
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
