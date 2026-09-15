@@ -8,6 +8,158 @@ X-WR-TIMEZONE:America/Los_Angeles
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
+UID:bondsports-event-5277604@mai-tai-calendar
+DTSTAMP:20260915T185716Z
+LAST-MODIFIED:20260915T185716Z
+SEQUENCE:0
+DTSTART:20260519T040000Z
+DTEND:20260519T044500Z
+SUMMARY:Nueva Era 5 - 8 Mai Tai (W)
+DESCRIPTION:Final: Nueva Era 5 - 8 Mai Tai (W)\nField 1\n\nStandings after 
+ this game:\n1. Serendipity 1-0\, 3 pts\, GD +5\n2. Phantom FC 1-0\, 3 pts\
+ , GD +5\n3. Milan FC Mujeres 1-0\, 3 pts\, GD +4\n4. Mai Tai 1-0\, 3 pts\,
+  GD +3\n5. JSC FC 1-0\, 3 pts\, GD +3\n6. Nueva Era 0-1\, 0 pts\, GD -3\n7
+ . Once Estrellas 0-1\, 0 pts\, GD -3\n8. Manchester 0-1\, 0 pts\, GD -4\n9
+ . Barracuda 0-1\, 0 pts\, GD -5\n10. Latin Girls 0-1\, 0 pts\, GD -5\n\nUp
+ dated Sep 15\, 2026 11:57 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5277608@mai-tai-calendar
+DTSTAMP:20260915T185716Z
+LAST-MODIFIED:20260915T185716Z
+SEQUENCE:0
+DTSTART:20260602T031000Z
+DTEND:20260602T035500Z
+SUMMARY:Mai Tai 4 - 0 Latin Girls (W)
+DESCRIPTION:Final: Mai Tai 4 - 0 Latin Girls (W)\nField 1\n\nStandings afte
+ r this game:\n1. Phantom FC 2-0\, 6 pts\, GD +14\n2. JSC FC 2-0\, 6 pts\, 
+ GD +10\n3. Mai Tai 2-0\, 6 pts\, GD +7\n4. Serendipity 2-0\, 6 pts\, GD +6
+ \n5. Nueva Era 1-1\, 3 pts\, GD +2\n6. Milan FC Mujeres 1-1\, 3 pts\, GD -
+ 1\n7. Manchester 0-2\, 0 pts\, GD -5\n8. Latin Girls 0-2\, 0 pts\, GD -9\n
+ 9. Barracuda 0-2\, 0 pts\, GD -12\n10. Once Estrellas 0-2\, 0 pts\, GD -12
+ \n\nUpdated Sep 15\, 2026 11:57 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5277612@mai-tai-calendar
+DTSTAMP:20260915T185716Z
+LAST-MODIFIED:20260915T185716Z
+SEQUENCE:0
+DTSTART:20260609T022000Z
+DTEND:20260609T030500Z
+SUMMARY:Mai Tai 2 - 6 Phantom FC (L)
+DESCRIPTION:Final: Mai Tai 2 - 6 Phantom FC (L)\nField 1\n\nStandings after
+  this game:\n1. Phantom FC 3-0\, 9 pts\, GD +18\n2. JSC FC 3-0\, 9 pts\, G
+ D +15\n3. Nueva Era 2-1\, 6 pts\, GD +9\n4. Milan FC Mujeres 2-1\, 6 pts\,
+  GD +5\n5. Mai Tai 2-1\, 6 pts\, GD +3\n6. Serendipity 2-1\, 6 pts\, GD -1
+ \n7. Once Estrellas 1-2\, 3 pts\, GD -11\n8. Manchester 0-3\, 0 pts\, GD -
+ 10\n9. Barracuda 0-3\, 0 pts\, GD -13\n10. Latin Girls 0-3\, 0 pts\, GD -1
+ 5\n\nUpdated Sep 15\, 2026 11:57 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5277620@mai-tai-calendar
+DTSTAMP:20260915T185716Z
+LAST-MODIFIED:20260915T185716Z
+SEQUENCE:0
+DTSTART:20260616T031000Z
+DTEND:20260616T035500Z
+SUMMARY:Mai Tai 3 - 5 Milan FC Mujeres (L)
+DESCRIPTION:Final: Mai Tai 3 - 5 Milan FC Mujeres (L)\nField 1\n\nStandings
+  after this game:\n1. Phantom FC 4-0\, 12 pts\, GD +27\n2. Nueva Era 3-1\,
+  9 pts\, GD +15\n3. JSC FC 3-1\, 9 pts\, GD +9\n4. Milan FC Mujeres 3-1\, 
+ 9 pts\, GD +7\n5. Mai Tai 2-2\, 6 pts\, GD +1\n6. Serendipity 2-2\, 6 pts\
+ , GD -2\n7. Manchester 1-3\, 3 pts\, GD -5\n8. Latin Girls 1-3\, 3 pts\, G
+ D -14\n9. Once Estrellas 1-3\, 3 pts\, GD -16\n10. Barracuda 0-4\, 0 pts\,
+  GD -22\n\nUpdated Sep 15\, 2026 11:57 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5277624@mai-tai-calendar
+DTSTAMP:20260915T185716Z
+LAST-MODIFIED:20260915T185716Z
+SEQUENCE:0
+DTSTART:20260623T040000Z
+DTEND:20260623T044500Z
+SUMMARY:Serendipity 4 - 6 Mai Tai (W)
+DESCRIPTION:Final: Serendipity 4 - 6 Mai Tai (W)\nField 1\n\nStandings afte
+ r this game:\n1. Phantom FC 5-0\, 15 pts\, GD +30\n2. Nueva Era 4-1\, 12 p
+ ts\, GD +23\n3. JSC FC 4-1\, 12 pts\, GD +12\n4. Milan FC Mujeres 3-2\, 9 
+ pts\, GD +4\n5. Mai Tai 3-2\, 9 pts\, GD +3\n6. Manchester 2-3\, 6 pts\, G
+ D -1\n7. Serendipity 2-3\, 6 pts\, GD -4\n8. Latin Girls 1-4\, 3 pts\, GD 
+ -17\n9. Once Estrellas 1-4\, 3 pts\, GD -24\n10. Barracuda 0-5\, 0 pts\, G
+ D -26\n\nUpdated Sep 15\, 2026 11:57 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5277626@mai-tai-calendar
+DTSTAMP:20260915T185716Z
+LAST-MODIFIED:20260915T185716Z
+SEQUENCE:0
+DTSTART:20260630T013000Z
+DTEND:20260630T021500Z
+SUMMARY:JSC FC 0 - 3 Mai Tai (W)
+DESCRIPTION:Final: JSC FC 0 - 3 Mai Tai (W)\nField 1\n\nStandings after thi
+ s game:\n1. Phantom FC 6-0\, 18 pts\, GD +37\n2. Nueva Era 5-1\, 15 pts\, 
+ GD +33\n3. Milan FC Mujeres 4-2\, 12 pts\, GD +9\n4. JSC FC 4-2\, 12 pts\,
+  GD +9\n5. Mai Tai 4-2\, 12 pts\, GD +6\n6. Manchester 2-4\, 6 pts\, GD -8
+ \n7. Serendipity 2-4\, 6 pts\, GD -9\n8. Latin Girls 2-4\, 6 pts\, GD -16\
+ n9. Once Estrellas 1-5\, 3 pts\, GD -25\n10. Barracuda 0-6\, 0 pts\, GD -3
+ 6\n\nUpdated Sep 15\, 2026 11:57 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5277631@mai-tai-calendar
+DTSTAMP:20260915T185716Z
+LAST-MODIFIED:20260915T185716Z
+SEQUENCE:0
+DTSTART:20260707T013000Z
+DTEND:20260707T021500Z
+SUMMARY:Mai Tai 0 - 3 Once Estrellas (L)
+DESCRIPTION:Final: Mai Tai 0 - 3 Once Estrellas (L)\nField 1\n\nStandings a
+ fter this game:\n1. Phantom FC 7-0\, 21 pts\, GD +42\n2. Nueva Era 6-1\, 1
+ 8 pts\, GD +36\n3. JSC FC 5-2\, 15 pts\, GD +14\n4. Milan FC Mujeres 4-3\,
+  12 pts\, GD +4\n5. Mai Tai 4-3\, 12 pts\, GD +3\n6. Latin Girls 3-4\, 9 p
+ ts\, GD -13\n7. Manchester 2-5\, 6 pts\, GD -11\n8. Serendipity 2-5\, 6 pt
+ s\, GD -14\n9. Once Estrellas 2-5\, 6 pts\, GD -22\n10. Barracuda 0-7\, 0 
+ pts\, GD -39\n\nUpdated Sep 15\, 2026 11:57 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-5277677@mai-tai-calendar
+DTSTAMP:20260915T185716Z
+LAST-MODIFIED:20260915T185716Z
+SEQUENCE:0
+DTSTART:20260714T010000Z
+DTEND:20260714T014500Z
+SUMMARY:Mai Tai 1 - 1 Latin Girls (D)
+DESCRIPTION:Final: Mai Tai 1 - 1 Latin Girls (D)\nField 1\n\nStandings afte
+ r this game:\n1. Phantom FC 7-0\, 21 pts\, GD +42\n2. Nueva Era 6-1\, 18 p
+ ts\, GD +36\n3. JSC FC 5-2\, 15 pts\, GD +14\n4. Mai Tai 4-3-1\, 13 pts\, 
+ GD +3\n5. Milan FC Mujeres 4-3\, 12 pts\, GD +4\n6. Latin Girls 3-4-1\, 10
+  pts\, GD -13\n7. Serendipity 3-5\, 9 pts\, GD -13\n8. Once Estrellas 3-5\
+ , 9 pts\, GD -16\n9. Manchester 2-6\, 6 pts\, GD -12\n10. Barracuda 0-8\, 
+ 0 pts\, GD -45\n\nUpdated Sep 15\, 2026 11:57 AM PDT
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:bondsports-event-5727513@mai-tai-calendar
 DTSTAMP:20260915T162134Z
 LAST-MODIFIED:20260915T162134Z
@@ -45,36 +197,36 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-5727521@mai-tai-calendar
-DTSTAMP:20260915T162134Z
-LAST-MODIFIED:20260915T162134Z
-SEQUENCE:2
+DTSTAMP:20260915T185716Z
+LAST-MODIFIED:20260915T185716Z
+SEQUENCE:3
 DTSTART:20260804T022000Z
 DTEND:20260804T030500Z
 SUMMARY:Mai Tai 8 - 0 Manchester (W)
 DESCRIPTION:Final: Mai Tai 8 - 0 Manchester (W)\nField 1\n\nStandings after
   this game:\n1. Milan Mujeres 3-0\, 9 pts\, GD +13\n2. Phantom FC 3-0\, 9 
  pts\, GD +10\n3. Mai Tai 2-1\, 6 pts\, GD +7\n4. Latin Girls 1-2\, 3 pts\,
-  GD +2\n5. Serendipity 1-2\, 3 pts\, GD -1\n6. Once Estrellas 1-2\, 3 pts\
- , GD -4\n7. Manchester 1-2\, 3 pts\, GD -9\n8. Barracuda 0-3\, 0 pts\, GD 
- -18\n\nUpdated Sep 15\, 2026 9:21 AM PDT
+  GD +2\n5. Manchester 1-2\, 3 pts\, GD -9\n6. Serendipity 1-2\, 3 pts\, GD
+  -1\n7. Once Estrellas 1-2\, 3 pts\, GD -4\n8. Barracuda 0-3\, 0 pts\, GD 
+ -18\n\nUpdated Sep 15\, 2026 11:57 AM PDT
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-5727527@mai-tai-calendar
-DTSTAMP:20260915T162134Z
-LAST-MODIFIED:20260915T162134Z
-SEQUENCE:2
+DTSTAMP:20260915T185716Z
+LAST-MODIFIED:20260915T185716Z
+SEQUENCE:3
 DTSTART:20260811T040000Z
 DTEND:20260811T044500Z
 SUMMARY:Mai Tai 7 - 3 Serendipity (W)
 DESCRIPTION:Final: Mai Tai 7 - 3 Serendipity (W)\nField 1\n\nStandings afte
  r this game:\n1. Milan Mujeres 4-0\, 12 pts\, GD +21\n2. Phantom FC 4-0\, 
  12 pts\, GD +16\n3. Mai Tai 3-1\, 9 pts\, GD +11\n4. Latin Girls 2-2\, 6 p
- ts\, GD +8\n5. Serendipity 1-3\, 3 pts\, GD -5\n6. Once Estrellas 1-3\, 3 
- pts\, GD -12\n7. Manchester 1-3\, 3 pts\, GD -15\n8. Barracuda 0-4\, 0 pts
- \, GD -24\n\nUpdated Sep 15\, 2026 9:21 AM PDT
+ ts\, GD +8\n5. Manchester 1-3\, 3 pts\, GD -15\n6. Serendipity 1-3\, 3 pts
+ \, GD -5\n7. Once Estrellas 1-3\, 3 pts\, GD -12\n8. Barracuda 0-4\, 0 pts
+ \, GD -24\n\nUpdated Sep 15\, 2026 11:57 AM PDT
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE

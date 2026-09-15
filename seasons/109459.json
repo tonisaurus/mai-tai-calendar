@@ -1,0 +1,1779 @@
+{
+  "competition": {
+    "stages": [
+      {
+        "id": 552,
+        "name": "Regular Season",
+        "stageType": "regular_season"
+      },
+      {
+        "id": 553,
+        "name": "Playoffs",
+        "stageType": "playoffs"
+      }
+    ],
+    "uuid": "a8bc5f58-4120-4a26-9078-a2d5c5682321"
+  },
+  "games": {
+    "552": [
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3937,
+          "logoUrl": null,
+          "name": "Phantom FC",
+          "score": 5
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-05-19T02:15:00.000Z",
+        "eventId": 5277601,
+        "gameId": 9425,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3931,
+          "logoUrl": null,
+          "name": "Latin Girls",
+          "score": 0
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-05-19T01:30:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3934,
+          "logoUrl": null,
+          "name": "Milan FC Mujeres",
+          "score": 5
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-05-19T03:05:00.000Z",
+        "eventId": 5277602,
+        "gameId": 9426,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3933,
+          "logoUrl": null,
+          "name": "Manchester",
+          "score": 1
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-05-19T02:20:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3929,
+          "logoUrl": null,
+          "name": "Barracuda",
+          "score": 1
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-05-19T03:55:00.000Z",
+        "eventId": 5277603,
+        "gameId": 9427,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3938,
+          "logoUrl": null,
+          "name": "Serendipity",
+          "score": 6
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-05-19T03:10:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3932,
+          "logoUrl": null,
+          "name": "Mai Tai",
+          "score": 8
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-05-19T04:45:00.000Z",
+        "eventId": 5277604,
+        "gameId": 9428,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3935,
+          "logoUrl": null,
+          "name": "Nueva Era",
+          "score": 5
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-05-19T04:00:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3936,
+          "logoUrl": null,
+          "name": "Once Estrellas",
+          "score": 0
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-05-19T05:35:00.000Z",
+        "eventId": 5277605,
+        "gameId": 9429,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3930,
+          "logoUrl": null,
+          "name": "JSC FC",
+          "score": 3
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-05-19T04:50:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3935,
+          "logoUrl": null,
+          "name": "Nueva Era",
+          "score": 6
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-02T02:15:00.000Z",
+        "eventId": 5277606,
+        "gameId": 9969,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3934,
+          "logoUrl": null,
+          "name": "Milan FC Mujeres",
+          "score": 1
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-02T01:30:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3937,
+          "logoUrl": null,
+          "name": "Phantom FC",
+          "score": 10
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-02T03:05:00.000Z",
+        "eventId": 5277607,
+        "gameId": 9970,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3936,
+          "logoUrl": null,
+          "name": "Once Estrellas",
+          "score": 1
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-02T02:20:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3931,
+          "logoUrl": null,
+          "name": "Latin Girls",
+          "score": 0
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-02T03:55:00.000Z",
+        "eventId": 5277608,
+        "gameId": 9971,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3932,
+          "logoUrl": null,
+          "name": "Mai Tai",
+          "score": 4
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-02T03:10:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3929,
+          "logoUrl": null,
+          "name": "Barracuda",
+          "score": 1
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-02T04:45:00.000Z",
+        "eventId": 5277609,
+        "gameId": 9972,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3930,
+          "logoUrl": null,
+          "name": "JSC FC",
+          "score": 8
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-02T04:00:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3938,
+          "logoUrl": null,
+          "name": "Serendipity",
+          "score": 3
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-02T05:35:00.000Z",
+        "eventId": 5277610,
+        "gameId": 9973,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3933,
+          "logoUrl": null,
+          "name": "Manchester",
+          "score": 2
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-02T04:50:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3938,
+          "logoUrl": null,
+          "name": "Serendipity",
+          "score": 0
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-09T02:15:00.000Z",
+        "eventId": 5277611,
+        "gameId": 10477,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3935,
+          "logoUrl": null,
+          "name": "Nueva Era",
+          "score": 7
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-09T01:30:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3937,
+          "logoUrl": null,
+          "name": "Phantom FC",
+          "score": 6
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-09T03:05:00.000Z",
+        "eventId": 5277612,
+        "gameId": 10478,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3932,
+          "logoUrl": null,
+          "name": "Mai Tai",
+          "score": 2
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-09T02:20:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3936,
+          "logoUrl": null,
+          "name": "Once Estrellas",
+          "score": 3
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-09T03:55:00.000Z",
+        "eventId": 5277613,
+        "gameId": 10479,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3929,
+          "logoUrl": null,
+          "name": "Barracuda",
+          "score": 2
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-09T03:10:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3931,
+          "logoUrl": null,
+          "name": "Latin Girls",
+          "score": 1
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-09T04:45:00.000Z",
+        "eventId": 5277614,
+        "gameId": 10480,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3934,
+          "logoUrl": null,
+          "name": "Milan FC Mujeres",
+          "score": 7
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-09T04:00:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3933,
+          "logoUrl": null,
+          "name": "Manchester",
+          "score": 0
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-09T05:35:00.000Z",
+        "eventId": 5277615,
+        "gameId": 10481,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3930,
+          "logoUrl": null,
+          "name": "JSC FC",
+          "score": 5
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-09T04:50:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3938,
+          "logoUrl": null,
+          "name": "Serendipity",
+          "score": 2
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-16T02:15:00.000Z",
+        "eventId": 5277616,
+        "gameId": 11141,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3931,
+          "logoUrl": null,
+          "name": "Latin Girls",
+          "score": 3
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-16T01:30:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3929,
+          "logoUrl": null,
+          "name": "Barracuda",
+          "score": 1
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-16T03:05:00.000Z",
+        "eventId": 5277617,
+        "gameId": 11142,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3937,
+          "logoUrl": null,
+          "name": "Phantom FC",
+          "score": 10
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-16T02:20:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3934,
+          "logoUrl": null,
+          "name": "Milan FC Mujeres",
+          "score": 5
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-16T03:55:00.000Z",
+        "eventId": 5277620,
+        "gameId": 11143,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3932,
+          "logoUrl": null,
+          "name": "Mai Tai",
+          "score": 3
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-16T03:10:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3936,
+          "logoUrl": null,
+          "name": "Once Estrellas",
+          "score": 0
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-16T04:45:00.000Z",
+        "eventId": 5277619,
+        "gameId": 11144,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3933,
+          "logoUrl": null,
+          "name": "Manchester",
+          "score": 5
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-16T04:00:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3935,
+          "logoUrl": null,
+          "name": "Nueva Era",
+          "score": 7
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-16T05:35:00.000Z",
+        "eventId": 5277618,
+        "gameId": 11145,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3930,
+          "logoUrl": null,
+          "name": "JSC FC",
+          "score": 1
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-16T04:50:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3929,
+          "logoUrl": null,
+          "name": "Barracuda",
+          "score": 0
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-23T02:15:00.000Z",
+        "eventId": 5277621,
+        "gameId": 12318,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3933,
+          "logoUrl": null,
+          "name": "Manchester",
+          "score": 4
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-23T01:30:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3931,
+          "logoUrl": null,
+          "name": "Latin Girls",
+          "score": 3
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-23T03:05:00.000Z",
+        "eventId": 5277622,
+        "gameId": 12319,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3930,
+          "logoUrl": null,
+          "name": "JSC FC",
+          "score": 6
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-23T02:20:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3936,
+          "logoUrl": null,
+          "name": "Once Estrellas",
+          "score": 0
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-23T03:55:00.000Z",
+        "eventId": 5277623,
+        "gameId": 12320,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3935,
+          "logoUrl": null,
+          "name": "Nueva Era",
+          "score": 8
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-23T03:10:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3932,
+          "logoUrl": null,
+          "name": "Mai Tai",
+          "score": 6
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-23T04:45:00.000Z",
+        "eventId": 5277624,
+        "gameId": 12321,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3938,
+          "logoUrl": null,
+          "name": "Serendipity",
+          "score": 4
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-23T04:00:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3937,
+          "logoUrl": null,
+          "name": "Phantom FC",
+          "score": 5
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-23T05:35:00.000Z",
+        "eventId": 5277625,
+        "gameId": 12323,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3934,
+          "logoUrl": null,
+          "name": "Milan FC Mujeres",
+          "score": 2
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-23T04:50:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3932,
+          "logoUrl": null,
+          "name": "Mai Tai",
+          "score": 3
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-30T02:15:00.000Z",
+        "eventId": 5277626,
+        "gameId": 12621,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3930,
+          "logoUrl": null,
+          "name": "JSC FC",
+          "score": 0
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-30T01:30:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3938,
+          "logoUrl": null,
+          "name": "Serendipity",
+          "score": 1
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-30T03:05:00.000Z",
+        "eventId": 5277627,
+        "gameId": 12622,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3934,
+          "logoUrl": null,
+          "name": "Milan FC Mujeres",
+          "score": 6
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-30T02:20:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3933,
+          "logoUrl": null,
+          "name": "Manchester",
+          "score": 0
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-30T03:55:00.000Z",
+        "eventId": 5277628,
+        "gameId": 12623,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3937,
+          "logoUrl": null,
+          "name": "Phantom FC",
+          "score": 7
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-30T03:10:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3931,
+          "logoUrl": null,
+          "name": "Latin Girls",
+          "score": 2
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-30T04:45:00.000Z",
+        "eventId": 5277629,
+        "gameId": 12624,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3936,
+          "logoUrl": null,
+          "name": "Once Estrellas",
+          "score": 1
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-30T04:00:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3929,
+          "logoUrl": null,
+          "name": "Barracuda",
+          "score": 0
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-06-30T05:35:00.000Z",
+        "eventId": 5277630,
+        "gameId": 12626,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3935,
+          "logoUrl": null,
+          "name": "Nueva Era",
+          "score": 10
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-06-30T04:50:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3936,
+          "logoUrl": null,
+          "name": "Once Estrellas",
+          "score": 3
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-07T02:15:00.000Z",
+        "eventId": 5277631,
+        "gameId": 13189,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3932,
+          "logoUrl": null,
+          "name": "Mai Tai",
+          "score": 0
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-07-07T01:30:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3933,
+          "logoUrl": null,
+          "name": "Manchester",
+          "score": 2
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-07T03:05:00.000Z",
+        "eventId": 5277632,
+        "gameId": 13242,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3935,
+          "logoUrl": null,
+          "name": "Nueva Era",
+          "score": 5
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-07-07T02:20:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3934,
+          "logoUrl": null,
+          "name": "Milan FC Mujeres",
+          "score": 2
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-07T03:55:00.000Z",
+        "eventId": 5277633,
+        "gameId": 13243,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3930,
+          "logoUrl": null,
+          "name": "JSC FC",
+          "score": 7
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-07-07T03:10:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3938,
+          "logoUrl": null,
+          "name": "Serendipity",
+          "score": 1
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-07T04:45:00.000Z",
+        "eventId": 5277634,
+        "gameId": 13244,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3937,
+          "logoUrl": null,
+          "name": "Phantom FC",
+          "score": 6
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-07-07T04:00:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3931,
+          "logoUrl": null,
+          "name": "Latin Girls",
+          "score": 3
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-07T05:35:00.000Z",
+        "eventId": 5277635,
+        "gameId": 13161,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3929,
+          "logoUrl": null,
+          "name": "Barracuda",
+          "score": 0
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-07-07T04:50:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3931,
+          "logoUrl": null,
+          "name": "Latin Girls",
+          "score": 1
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-14T01:45:00.000Z",
+        "eventId": 5277677,
+        "gameId": 14000,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3932,
+          "logoUrl": null,
+          "name": "Mai Tai",
+          "score": 1
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-07-14T01:00:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3938,
+          "logoUrl": null,
+          "name": "Serendipity",
+          "score": 3
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-14T05:05:00.000Z",
+        "eventId": 5277673,
+        "gameId": 14001,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3933,
+          "logoUrl": null,
+          "name": "Manchester",
+          "score": 2
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-07-14T04:20:00.000Z",
+        "status": "final"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3929,
+          "logoUrl": null,
+          "name": "Barracuda",
+          "score": 3
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-14T05:55:00.000Z",
+        "eventId": 5277672,
+        "gameId": 14002,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3936,
+          "logoUrl": null,
+          "name": "Once Estrellas",
+          "score": 9
+        },
+        "homeTeamStats": null,
+        "includedInStandings": true,
+        "overtime": false,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": false,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": 552,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-07-14T05:10:00.000Z",
+        "status": "final"
+      }
+    ],
+    "553": [
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3930,
+          "logoUrl": null,
+          "name": "JSC FC",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-14T02:35:00.000Z",
+        "eventId": 5277676,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3935,
+          "logoUrl": null,
+          "name": "Nueva Era",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Playoffs",
+        "startDateTime": "2026-07-14T01:50:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3934,
+          "logoUrl": null,
+          "name": "Milan FC Mujeres",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-14T03:25:00.000Z",
+        "eventId": 5277675,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": 3937,
+          "logoUrl": null,
+          "name": "Phantom FC",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Playoffs",
+        "startDateTime": "2026-07-14T02:40:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": null,
+          "logoUrl": null,
+          "name": null,
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-07-14T04:15:00.000Z",
+        "eventId": 5277674,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 665,
+          "divisionName": "Monday Women's Spring 2026",
+          "id": null,
+          "logoUrl": null,
+          "name": null,
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Playoffs",
+        "startDateTime": "2026-07-14T03:30:00.000Z",
+        "status": "scheduled"
+      }
+    ]
+  },
+  "ruleset": {
+    "createdAt": "2026-05-25T21:32:01.862Z",
+    "forfeitEnabled": true,
+    "id": 426,
+    "overtimeEnabled": false,
+    "pointsForForfeitLoss": 0,
+    "pointsForForfeitWin": 3,
+    "pointsForLoss": 0,
+    "pointsForOvertimeLoss": 0,
+    "pointsForOvertimeWin": 0,
+    "pointsForShootoutLoss": 0,
+    "pointsForShootoutWin": 0,
+    "pointsForTie": 1,
+    "pointsForWin": 3,
+    "rankingCriteria": [
+      "league_points",
+      "point_differential",
+      "regulation_wins",
+      "points_scored",
+      "head_to_head_record"
+    ],
+    "shootoutEnabled": false,
+    "stageId": 552,
+    "standingsColumns": [
+      "rank",
+      "team",
+      "games_played",
+      "wins",
+      "losses",
+      "ties",
+      "league_points",
+      "points_scored",
+      "points_against",
+      "point_differential"
+    ],
+    "teamStatistics": [
+      "shots",
+      "shots_on_target",
+      "corner_kicks",
+      "fouls",
+      "yellow_cards",
+      "red_cards"
+    ],
+    "tiesEnabled": true,
+    "updatedAt": "2026-05-25T21:32:01.862Z"
+  },
+  "season": {
+    "endDate": "2026-07-14",
+    "id": 109459,
+    "name": "01. Monday Women's May-July 26",
+    "startDate": "2026-05-18"
+  },
+  "standings": [
+    {
+      "divisionId": 665,
+      "divisionName": "Monday Women's Spring 2026",
+      "standings": [
+        {
+          "gamesPlayed": 7,
+          "losses": 0,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 21,
+          "pointsAgainst": 7,
+          "pointsScored": 49,
+          "pointsScoredDifferential": 42,
+          "rank": 1,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 2,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 3937,
+            "logoUrl": null,
+            "name": "Phantom FC"
+          },
+          "winPercentage": "1.000",
+          "wins": 7
+        },
+        {
+          "gamesPlayed": 7,
+          "losses": 1,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 18,
+          "pointsAgainst": 12,
+          "pointsScored": 48,
+          "pointsScoredDifferential": 36,
+          "rank": 2,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 3,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 3935,
+            "logoUrl": null,
+            "name": "Nueva Era"
+          },
+          "winPercentage": ".857",
+          "wins": 6
+        },
+        {
+          "gamesPlayed": 7,
+          "losses": 2,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 15,
+          "pointsAgainst": 16,
+          "pointsScored": 30,
+          "pointsScoredDifferential": 14,
+          "rank": 3,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 2,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 3930,
+            "logoUrl": null,
+            "name": "JSC FC"
+          },
+          "winPercentage": ".714",
+          "wins": 5
+        },
+        {
+          "gamesPlayed": 8,
+          "losses": 3,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 13,
+          "pointsAgainst": 24,
+          "pointsScored": 27,
+          "pointsScoredDifferential": 3,
+          "rank": 4,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 2,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 3932,
+            "logoUrl": null,
+            "name": "Mai Tai"
+          },
+          "winPercentage": ".563",
+          "wins": 4
+        },
+        {
+          "gamesPlayed": 7,
+          "losses": 3,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 12,
+          "pointsAgainst": 24,
+          "pointsScored": 28,
+          "pointsScoredDifferential": 4,
+          "rank": 5,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 3934,
+            "logoUrl": null,
+            "name": "Milan FC Mujeres"
+          },
+          "winPercentage": ".571",
+          "wins": 4
+        },
+        {
+          "gamesPlayed": 8,
+          "losses": 4,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 10,
+          "pointsAgainst": 26,
+          "pointsScored": 13,
+          "pointsScoredDifferential": -13,
+          "rank": 6,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 1,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 3931,
+            "logoUrl": null,
+            "name": "Latin Girls"
+          },
+          "winPercentage": ".438",
+          "wins": 3
+        },
+        {
+          "gamesPlayed": 8,
+          "losses": 5,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 9,
+          "pointsAgainst": 33,
+          "pointsScored": 20,
+          "pointsScoredDifferential": -13,
+          "rank": 7,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 3938,
+            "logoUrl": null,
+            "name": "Serendipity"
+          },
+          "winPercentage": ".375",
+          "wins": 3
+        },
+        {
+          "gamesPlayed": 8,
+          "losses": 5,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 9,
+          "pointsAgainst": 33,
+          "pointsScored": 17,
+          "pointsScoredDifferential": -16,
+          "rank": 8,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 1,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 3936,
+            "logoUrl": null,
+            "name": "Once Estrellas"
+          },
+          "winPercentage": ".375",
+          "wins": 3
+        },
+        {
+          "gamesPlayed": 8,
+          "losses": 6,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 6,
+          "pointsAgainst": 28,
+          "pointsScored": 16,
+          "pointsScoredDifferential": -12,
+          "rank": 9,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 2,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 3933,
+            "logoUrl": null,
+            "name": "Manchester"
+          },
+          "winPercentage": ".250",
+          "wins": 2
+        },
+        {
+          "gamesPlayed": 8,
+          "losses": 8,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 0,
+          "pointsAgainst": 53,
+          "pointsScored": 8,
+          "pointsScoredDifferential": -45,
+          "rank": 10,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 3929,
+            "logoUrl": null,
+            "name": "Barracuda"
+          },
+          "winPercentage": ".000",
+          "wins": 0
+        }
+      ]
+    }
+  ]
+}
