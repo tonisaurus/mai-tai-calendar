@@ -30,6 +30,18 @@
     main { max-width: 34rem; margin: 0 auto; }
     h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: -0.01em; }
     .sub { color: var(--subtle); margin: 0 0 1.75rem; }
+    .sub span {
+      display: block;
+    }
+    .sub-tagline {
+      font-size: 1.05em;
+      font-weight: 500;
+    }
+    .sub-detail {
+      margin-top: 0.3rem;
+      font-size: 0.95em;
+      opacity: 0.65;
+    }
     .card {
       background: var(--surface);
       border: 1px solid var(--highlight-med);
@@ -83,9 +95,12 @@
 <main>
   <h1>Mai Tai Soccer</h1>
   <p class="sub">
-    <span>For folks who like things in their calendars 🙂</span>
-    <br>
-    <span>What you’ll get: schedule, results, and standings, automatically kept current.</span>
+    <span class="sub-tagline">
+      For folks who like things in their calendars 🙂
+    </span>
+    <span class="sub-detail">
+      Games, scores, standings. Basically the useful stuff.
+    </span>
   </p>
 
   <section class="card">
