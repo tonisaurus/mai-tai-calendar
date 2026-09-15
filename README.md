@@ -28,7 +28,7 @@ written into each event's location.
 - [`state.json`](state.json) remembers a content hash per event so `SEQUENCE` and `LAST-MODIFIED` only
   change when an event actually changes. That also means the daily run only commits when there is news.
 - [`.github/workflows/update-calendar.yml`](.github/workflows/update-calendar.yml) runs the script once a
-  day (14:00 UTC, a few hours after Monday night games), and on any change to the config or script, then
+  day (14:23 UTC, a few hours after Monday night games; off the hour because GitHub drops :00 schedules under load), and on any change to the config or script, then
   commits the result. GitHub Pages serves the `docs/` folder.
 - If the API is unreachable the run retries a few times, then fails without committing, so subscribers keep
   the last good calendar. A run that would publish an empty calendar (for example after the league changes
