@@ -321,19 +321,4 @@ LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
-BEGIN:VEVENT
-UID:bondsports-event-5727651@mai-tai-calendar
-DTSTAMP:20260915T070300Z
-LAST-MODIFIED:20260915T070300Z
-SEQUENCE:0
-DTSTART:20260922T034000Z
-DTEND:20260922T042500Z
-SUMMARY:Playoffs: TBD
-DESCRIPTION:Playoffs slot - teams not yet announced.\nThis event will updat
- e once the league sets the matchups\, and will disappear if Mai Tai is not
-  playing in this slot.\nField 1\n\nUpdated Sep 15\, 2026 12:03 AM PDT
-LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
 END:VCALENDAR
