@@ -305,18 +305,15 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-5727653@mai-tai-calendar
-DTSTAMP:20260918T174319Z
-LAST-MODIFIED:20260918T174319Z
-SEQUENCE:1
+DTSTAMP:20260923T182611Z
+LAST-MODIFIED:20260923T182611Z
+SEQUENCE:2
 DTSTART:20260922T020000Z
 DTEND:20260922T024500Z
-SUMMARY:Playoffs: Milan Mujeres (2nd\, 6-2) vs Mai Tai (3rd\, 6-2)
+SUMMARY:Playoffs: Milan Mujeres vs Mai Tai
 DESCRIPTION:Milan Mujeres (home) vs Mai Tai (away)\nPlayoffs\nField 1\n\nSt
- andings:\n1. Phantom FC 8-0\, 24 pts\, GD +34\n2. Milan Mujeres 6-2\, 18 p
- ts\, GD +21\n3. Mai Tai 6-2\, 18 pts\, GD +22\n4. Latin Girls 5-3\, 15 pts
- \, GD +20\n5. Serendipity 4-4\, 12 pts\, GD +5\n6. Once Estrellas 1-7\, 3 
- pts\, GD -26\n7. Manchester 1-7\, 3 pts\, GD -32\n8. Barracuda 1-7\, 3 pts
- \, GD -44\n\nUpdated Sep 18\, 2026 10:43 AM PDT
+ andings and records are added the week of the game.\n\nUpdated Sep 23\, 20
+ 26 11:26 AM PDT
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
