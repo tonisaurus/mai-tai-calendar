@@ -305,33 +305,28 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-5727653@mai-tai-calendar
-DTSTAMP:20260923T182611Z
-LAST-MODIFIED:20260923T182611Z
-SEQUENCE:2
+DTSTAMP:20260925T193905Z
+LAST-MODIFIED:20260925T193905Z
+SEQUENCE:3
 DTSTART:20260922T020000Z
 DTEND:20260922T024500Z
 SUMMARY:Playoffs: Milan Mujeres vs Mai Tai
-DESCRIPTION:Milan Mujeres (home) vs Mai Tai (away)\nPlayoffs\nField 1\n\nSt
- andings and records are added the week of the game.\n\nUpdated Sep 23\, 20
- 26 11:26 AM PDT
+DESCRIPTION:Milan Mujeres (home) vs Mai Tai (away)\nPlayoffs\nField 1\n\nSc
+ ore not posted yet.\n\nUpdated Sep 25\, 2026 12:39 PM PDT
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-6526177@mai-tai-calendar
-DTSTAMP:20260925T184308Z
-LAST-MODIFIED:20260925T184308Z
-SEQUENCE:0
+DTSTAMP:20260925T193905Z
+LAST-MODIFIED:20260925T193905Z
+SEQUENCE:1
 DTSTART:20260929T025000Z
 DTEND:20260929T033500Z
-SUMMARY:Mai Tai (0th\, 0-0) vs Serendipity (0th\, 0-0)
-DESCRIPTION:Mai Tai (home) vs Serendipity (away)\nField 1\n\nStandings:\n0.
-  Serendipity 0-0\, 0 pts\, GD +0\n0. Phantom FC 0-0\, 0 pts\, GD +0\n0. Mi
- lan Mujeres 0-0\, 0 pts\, GD +0\n0. Manchester 0-0\, 0 pts\, GD +0\n0. Mai
-  Tai 0-0\, 0 pts\, GD +0\n0. Latin Girls 0-0\, 0 pts\, GD +0\n0. JSC 0-0\,
-  0 pts\, GD +0\n0. Barracuda 0-0\, 0 pts\, GD +0\n\nUpdated Sep 25\, 2026 
- 11:43 AM PDT
+SUMMARY:Mai Tai vs Serendipity
+DESCRIPTION:Mai Tai (home) vs Serendipity (away)\nField 1\n\nNo games playe
+ d yet this season.\n\nUpdated Sep 25\, 2026 12:39 PM PDT
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
