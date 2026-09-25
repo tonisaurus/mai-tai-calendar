@@ -136,6 +136,16 @@ class Standings:
     def for_team(self, team: str) -> Optional[Standing]:
         return next((row for row in self.rows if same_team(row.team, team)), None)
 
+    @property
+    def has_results(self) -> bool:
+        """False before the first game of a season, when every row is still zeroes."""
+        return any(row.wins or row.losses or row.ties for row in self.rows)
+
+    @property
+    def is_ranked(self) -> bool:
+        """Bond Sports ranks every team 0 until the first results land."""
+        return bool(self.rows) and all(row.rank > 0 for row in self.rows)
+
 
 # Applied after the league's published ranking criteria, so teams the rules leave tied are
 # still ordered the way readers expect rather than alphabetically.
@@ -516,11 +526,37 @@ def standings_after(game: Game, season: Season, tz: ZoneInfo) -> Standings:
     """
     through = game.start.astimezone(tz).date()
     api = season.standings
-    if api is not None and api.division_id == game.division_id:
+    if api is not None and api.is_ranked and api.division_id == game.division_id:
         latest = max((g.start.astimezone(tz).date() for g in counted_games(season.games, game.division_id, tz)), default=None)
         if latest is not None and latest <= through:
             return api
     return compute_standings(season.games, game.division_id, tz, season.ruleset, through)
+
+
+def live_standings(season: Season, tz: ZoneInfo) -> Optional[Standings]:
+    """The league's current table, or None when it would tell the reader nothing.
+
+    Before a season's first game every team is 0-0 and ranked 0, so there is no table worth showing.
+    If results exist but the ranks are missing, rebuild the table rather than printing zeroes.
+    """
+    api = season.standings
+    if api is None or not api.has_results:
+        return None
+    return api if api.is_ranked else compute_standings(season.games, api.division_id, tz, season.ruleset)
+
+
+def standings_for(game: Game, season: Season, tz: ZoneInfo, featured: bool, now: datetime) -> tuple[Optional[Standings], Optional[str]]:
+    """The table to show on an event, or the note to show in its place."""
+    if game.has_result:
+        return standings_after(game, season, tz), None
+    if game.is_placeholder or game.is_cancelled:
+        return None, None
+    if featured:
+        table = live_standings(season, tz)
+        return table, None if table else "No games played yet this season."
+    if game.start < now:
+        return None, "Score not posted yet."
+    return None, "Standings and records are added the week of the game."
 
 
 def standings_mismatch(api: Standings, computed: Standings) -> list[str]:
@@ -618,8 +654,9 @@ def standings_table(standings: Standings, heading: str) -> list[str]:
     return lines
 
 
-def build_description(game: Game, team: str, standings: Optional[Standings]) -> str:
-    """`standings` is the table to show: pre-game for this week's game, end-of-that-day for played games."""
+def build_description(game: Game, team: str, standings: Optional[Standings], note: Optional[str] = None) -> str:
+    """`standings` is the table to show: pre-game for this week's game, end-of-that-day for played games.
+    `note` stands in for it when there is no table worth showing."""
     lines: list[str] = []
     home, away = clean_name(game.home.name), clean_name(game.away.name)
 
@@ -645,9 +682,9 @@ def build_description(game: Game, team: str, standings: Optional[Standings]) -> 
     if standings:
         lines.append("")
         lines.extend(standings_table(standings, "Standings after this game:" if game.has_result else "Standings:"))
-    elif not game.is_final and not game.is_placeholder and not game.is_cancelled:
+    elif note:
         lines.append("")
-        lines.append("Standings and records are added the week of the game.")
+        lines.append(note)
     return "\n".join(lines)
 
 
@@ -755,14 +792,9 @@ def build(config: dict, seasons: list[Season], state: dict, now: datetime, locat
     for game in ours:
         season = by_id[game.season_id]
         is_featured = game is featured
-        summary = build_summary(game, team, is_featured, season.standings)
-        if is_featured:
-            table = season.standings
-        elif game.has_result:
-            table = standings_after(game, season, tz)
-        else:
-            table = None
-        description = build_description(game, team, table)
+        table, note = standings_for(game, season, tz, is_featured, now)
+        summary = build_summary(game, team, is_featured, table)
+        description = build_description(game, team, table, note)
         uid = event_uid(game)
         digest = content_hash(summary, description, game.start, game.end, game.status, location)
         entry = next_state(state.get(uid), digest, now)
@@ -797,7 +829,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         return 1
 
     for season in seasons:
-        if season.standings is not None:
+        if season.standings is not None and season.standings.has_results:
             current = compute_standings(season.games, season.standings.division_id, tz, season.ruleset)
             for line in standings_mismatch(season.standings, current):
                 print(f"warning: rebuilt standings for {season.name!r} differ from the API's ({line})", file=sys.stderr)

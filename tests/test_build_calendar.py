@@ -196,10 +196,56 @@ class DescriptionTests(unittest.TestCase):
     def test_featured_upcoming_game_uses_plain_heading(self):
         self.assertIn("\nStandings:\n1. Phantom FC", bc.build_description(game(), TEAM, STANDINGS))
 
-    def test_upcoming_non_featured_game_has_no_table(self):
-        text = bc.build_description(game(), TEAM, None)
-        self.assertIn("Standings and records are added the week of the game.", text)
+    def test_note_stands_in_for_a_missing_table(self):
+        text = bc.build_description(game(), TEAM, None, "Standings and records are added the week of the game.")
+        self.assertEqual(text.splitlines()[-2:], ["", "Standings and records are added the week of the game."])
         self.assertNotIn("Standings:", text)
+        self.assertEqual(bc.build_description(game(), TEAM, None).splitlines()[-1], "Field 1")
+
+
+class StandingsForTests(unittest.TestCase):
+    TZ = bc.ZoneInfo("America/Los_Angeles")
+    PRESEASON = bc.Standings(division="Div", division_id=907, rows=[
+        # Bond Sports ranks every team 0 and reports 0-0 until the first results land.
+        bc.Standing("Mai Tai", 0, 0, 0, 0, 0, 0, 0), bc.Standing("Barracuda", 0, 0, 0, 0, 0, 0, 0),
+    ])
+
+    def test_preseason_table_is_suppressed_rather_than_printed_as_zeroes(self):
+        self.assertFalse(self.PRESEASON.has_results)
+        self.assertFalse(self.PRESEASON.is_ranked)
+        first = game(1, start=NOW + timedelta(days=1))
+        table, note = bc.standings_for(first, season([first], self.PRESEASON), self.TZ, featured=True, now=NOW)
+        self.assertIsNone(table)
+        self.assertEqual(note, "No games played yet this season.")
+        # The title must not read "(0th, 0-0)".
+        self.assertEqual(bc.build_summary(first, TEAM, True, table), "Mai Tai vs Barracuda")
+
+    def test_unranked_table_with_results_is_rebuilt_instead_of_shown(self):
+        games = [played(1, "Mai Tai ", "Barracuda ", 3, 0, 7), game(2, start=NOW + timedelta(days=1))]
+        unranked = bc.Standings(division="Div", division_id=907, rows=[
+            bc.Standing("Mai Tai", 0, 1, 0, 0, 3, 3, 0), bc.Standing("Barracuda", 0, 0, 1, 0, 0, 0, 3),
+        ])
+        table = bc.live_standings(season(games, unranked), self.TZ)
+        self.assertEqual([(r.rank, r.team) for r in table.rows], [(1, "Mai Tai"), (2, "Barracuda")])
+
+    def test_past_game_without_a_posted_score_says_so(self):
+        stale = game(1, start=NOW - timedelta(days=4))  # played, but the league never posted a result
+        table, note = bc.standings_for(stale, season([stale], STANDINGS), self.TZ, featured=False, now=NOW)
+        self.assertIsNone(table)
+        self.assertEqual(note, "Score not posted yet.")
+
+    def test_upcoming_game_keeps_the_forward_looking_note(self):
+        later = game(1, start=NOW + timedelta(days=20))
+        _, note = bc.standings_for(later, season([later], STANDINGS), self.TZ, featured=False, now=NOW)
+        self.assertEqual(note, "Standings and records are added the week of the game.")
+
+    def test_placeholders_and_played_games(self):
+        slot = game(1, home=None, away=None, stage="Playoffs", start=NOW + timedelta(days=5))
+        self.assertEqual(bc.standings_for(slot, season([slot], STANDINGS), self.TZ, False, NOW), (None, None))
+        done = played(2, "Mai Tai ", "Barracuda ", 2, 1, 3)
+        table, note = bc.standings_for(done, season([done], STANDINGS), self.TZ, False, NOW)
+        self.assertIsNotNone(table)
+        self.assertIsNone(note)
 
 
 class IcsFormattingTests(unittest.TestCase):
