@@ -1,0 +1,1517 @@
+{
+  "competition": {
+    "stages": [
+      {
+        "id": 1238,
+        "name": "Regular Season",
+        "stageType": "regular_season"
+      },
+      {
+        "id": 1239,
+        "name": "Playoffs",
+        "stageType": "playoffs"
+      }
+    ],
+    "uuid": "13f57a2f-ae9d-45b1-9ef9-d319467b283d"
+  },
+  "games": {
+    "1238": [
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7792,
+          "logoUrl": null,
+          "name": "Latin Girls ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-09-29T02:45:00.000Z",
+        "eventId": 6526178,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7791,
+          "logoUrl": null,
+          "name": "JSC",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-09-29T02:00:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7797,
+          "logoUrl": null,
+          "name": "Serendipity ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-09-29T03:35:00.000Z",
+        "eventId": 6526177,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7793,
+          "logoUrl": null,
+          "name": "Mai Tai ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-09-29T02:50:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7794,
+          "logoUrl": null,
+          "name": "Manchester ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-09-29T04:25:00.000Z",
+        "eventId": 6526176,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7796,
+          "logoUrl": null,
+          "name": "Phantom FC ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-09-29T03:40:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7795,
+          "logoUrl": null,
+          "name": "Milan Mujeres ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-09-29T05:15:00.000Z",
+        "eventId": 6526175,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7790,
+          "logoUrl": null,
+          "name": "Barracuda ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-09-29T04:30:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7795,
+          "logoUrl": null,
+          "name": "Milan Mujeres ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-06T02:45:00.000Z",
+        "eventId": 6526214,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7791,
+          "logoUrl": null,
+          "name": "JSC",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-06T02:00:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7790,
+          "logoUrl": null,
+          "name": "Barracuda ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-06T03:35:00.000Z",
+        "eventId": 6526213,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7796,
+          "logoUrl": null,
+          "name": "Phantom FC ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-06T02:50:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7792,
+          "logoUrl": null,
+          "name": "Latin Girls ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-06T04:25:00.000Z",
+        "eventId": 6526212,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7797,
+          "logoUrl": null,
+          "name": "Serendipity ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-06T03:40:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7794,
+          "logoUrl": null,
+          "name": "Manchester ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-06T05:15:00.000Z",
+        "eventId": 6526211,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7793,
+          "logoUrl": null,
+          "name": "Mai Tai ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-06T04:30:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7795,
+          "logoUrl": null,
+          "name": "Milan Mujeres ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-13T02:45:00.000Z",
+        "eventId": 6526229,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7792,
+          "logoUrl": null,
+          "name": "Latin Girls ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-13T02:00:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7797,
+          "logoUrl": null,
+          "name": "Serendipity ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-13T03:35:00.000Z",
+        "eventId": 6526228,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7794,
+          "logoUrl": null,
+          "name": "Manchester ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-13T02:50:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7790,
+          "logoUrl": null,
+          "name": "Barracuda ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-13T04:25:00.000Z",
+        "eventId": 6526227,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7793,
+          "logoUrl": null,
+          "name": "Mai Tai ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-13T03:40:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7796,
+          "logoUrl": null,
+          "name": "Phantom FC ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-13T05:15:00.000Z",
+        "eventId": 6526226,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7791,
+          "logoUrl": null,
+          "name": "JSC",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-13T04:30:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7790,
+          "logoUrl": null,
+          "name": "Barracuda ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-20T02:45:00.000Z",
+        "eventId": 6526325,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7794,
+          "logoUrl": null,
+          "name": "Manchester ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-20T02:00:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7796,
+          "logoUrl": null,
+          "name": "Phantom FC ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-20T03:35:00.000Z",
+        "eventId": 6526324,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7792,
+          "logoUrl": null,
+          "name": "Latin Girls ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-20T02:50:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7791,
+          "logoUrl": null,
+          "name": "JSC",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-20T04:25:00.000Z",
+        "eventId": 6526323,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7793,
+          "logoUrl": null,
+          "name": "Mai Tai ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-20T03:40:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7795,
+          "logoUrl": null,
+          "name": "Milan Mujeres ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-20T05:15:00.000Z",
+        "eventId": 6526322,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7797,
+          "logoUrl": null,
+          "name": "Serendipity ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-20T04:30:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7797,
+          "logoUrl": null,
+          "name": "Serendipity ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-27T02:45:00.000Z",
+        "eventId": 6526340,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7790,
+          "logoUrl": null,
+          "name": "Barracuda ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-27T02:00:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7791,
+          "logoUrl": null,
+          "name": "JSC",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-27T03:35:00.000Z",
+        "eventId": 6526339,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7794,
+          "logoUrl": null,
+          "name": "Manchester ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-27T02:50:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7796,
+          "logoUrl": null,
+          "name": "Phantom FC ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-27T04:25:00.000Z",
+        "eventId": 6526338,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7795,
+          "logoUrl": null,
+          "name": "Milan Mujeres ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-27T03:40:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7793,
+          "logoUrl": null,
+          "name": "Mai Tai ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-10-27T05:15:00.000Z",
+        "eventId": 6526337,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7792,
+          "logoUrl": null,
+          "name": "Latin Girls ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-10-27T04:30:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7796,
+          "logoUrl": null,
+          "name": "Phantom FC ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-03T03:45:00.000Z",
+        "eventId": 6526388,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7797,
+          "logoUrl": null,
+          "name": "Serendipity ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-03T03:00:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7793,
+          "logoUrl": null,
+          "name": "Mai Tai ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-03T04:35:00.000Z",
+        "eventId": 6526387,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7795,
+          "logoUrl": null,
+          "name": "Milan Mujeres ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-03T03:50:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7791,
+          "logoUrl": null,
+          "name": "JSC",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-03T05:25:00.000Z",
+        "eventId": 6526386,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7790,
+          "logoUrl": null,
+          "name": "Barracuda ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-03T04:40:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7794,
+          "logoUrl": null,
+          "name": "Manchester ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-03T06:15:00.000Z",
+        "eventId": 6526385,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7792,
+          "logoUrl": null,
+          "name": "Latin Girls ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-03T05:30:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7793,
+          "logoUrl": null,
+          "name": "Mai Tai ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-10T03:45:00.000Z",
+        "eventId": 6526397,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7796,
+          "logoUrl": null,
+          "name": "Phantom FC ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-10T03:00:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7792,
+          "logoUrl": null,
+          "name": "Latin Girls ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-10T04:35:00.000Z",
+        "eventId": 6526396,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7790,
+          "logoUrl": null,
+          "name": "Barracuda ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-10T03:50:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7794,
+          "logoUrl": null,
+          "name": "Manchester ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-10T05:25:00.000Z",
+        "eventId": 6526395,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7795,
+          "logoUrl": null,
+          "name": "Milan Mujeres ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-10T04:40:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7797,
+          "logoUrl": null,
+          "name": "Serendipity ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-10T06:15:00.000Z",
+        "eventId": 6526394,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7791,
+          "logoUrl": null,
+          "name": "JSC",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-10T05:30:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7793,
+          "logoUrl": null,
+          "name": "Mai Tai ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-17T03:45:00.000Z",
+        "eventId": 6526403,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7794,
+          "logoUrl": null,
+          "name": "Manchester ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-17T03:00:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7791,
+          "logoUrl": null,
+          "name": "JSC",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-17T04:35:00.000Z",
+        "eventId": 6526402,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7795,
+          "logoUrl": null,
+          "name": "Milan Mujeres ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-17T03:50:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7792,
+          "logoUrl": null,
+          "name": "Latin Girls ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-17T05:25:00.000Z",
+        "eventId": 6526401,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7797,
+          "logoUrl": null,
+          "name": "Serendipity ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-17T04:40:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7790,
+          "logoUrl": null,
+          "name": "Barracuda ",
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-17T06:15:00.000Z",
+        "eventId": 6526400,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": 7796,
+          "logoUrl": null,
+          "name": "Phantom FC ",
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Regular Season",
+        "startDateTime": "2026-11-17T05:30:00.000Z",
+        "status": "scheduled"
+      }
+    ],
+    "1239": [
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": null,
+          "logoUrl": null,
+          "name": null,
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-24T03:45:00.000Z",
+        "eventId": 6526466,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": null,
+          "logoUrl": null,
+          "name": null,
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Playoffs",
+        "startDateTime": "2026-11-24T03:00:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": null,
+          "logoUrl": null,
+          "name": null,
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-24T04:35:00.000Z",
+        "eventId": 6526465,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": null,
+          "logoUrl": null,
+          "name": null,
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Playoffs",
+        "startDateTime": "2026-11-24T03:50:00.000Z",
+        "status": "scheduled"
+      },
+      {
+        "awayTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": null,
+          "logoUrl": null,
+          "name": null,
+          "score": null
+        },
+        "awayTeamStats": null,
+        "endDateTime": "2026-11-24T05:25:00.000Z",
+        "eventId": 6526464,
+        "gameId": null,
+        "homeTeam": {
+          "divisionId": 1276,
+          "divisionName": "13. Monday Women's July-Sept 26",
+          "id": null,
+          "logoUrl": null,
+          "name": null,
+          "score": null
+        },
+        "homeTeamStats": null,
+        "includedInStandings": null,
+        "overtime": null,
+        "privateNote": null,
+        "publicNote": null,
+        "shootout": null,
+        "space": {
+          "id": 7744,
+          "name": "Field 1"
+        },
+        "stageId": null,
+        "stageName": "Playoffs",
+        "startDateTime": "2026-11-24T04:40:00.000Z",
+        "status": "scheduled"
+      }
+    ]
+  },
+  "ruleset": {
+    "createdAt": "2026-09-25T16:48:40.055Z",
+    "forfeitEnabled": true,
+    "id": 844,
+    "overtimeEnabled": false,
+    "pointsForForfeitLoss": 0,
+    "pointsForForfeitWin": 3,
+    "pointsForLoss": 0,
+    "pointsForOvertimeLoss": 0,
+    "pointsForOvertimeWin": 0,
+    "pointsForShootoutLoss": 0,
+    "pointsForShootoutWin": 0,
+    "pointsForTie": 1,
+    "pointsForWin": 3,
+    "rankingCriteria": [
+      "league_points",
+      "head_to_head_record",
+      "points_against"
+    ],
+    "shootoutEnabled": false,
+    "stageId": 1238,
+    "standingsColumns": [
+      "rank",
+      "team",
+      "games_played",
+      "wins",
+      "losses",
+      "ties",
+      "league_points",
+      "points_scored",
+      "points_against",
+      "point_differential"
+    ],
+    "teamStatistics": [
+      "shots",
+      "shots_on_target",
+      "corner_kicks",
+      "fouls",
+      "yellow_cards",
+      "red_cards"
+    ],
+    "tiesEnabled": true,
+    "updatedAt": "2026-09-25T16:48:40.055Z"
+  },
+  "season": {
+    "endDate": "2026-11-24",
+    "id": 140775,
+    "name": "13. Monday Women's Sept-Nov 26",
+    "startDate": "2026-09-28"
+  },
+  "standings": [
+    {
+      "divisionId": 1276,
+      "divisionName": "13. Monday Women's July-Sept 26",
+      "standings": [
+        {
+          "gamesPlayed": 0,
+          "losses": 0,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 0,
+          "pointsAgainst": 0,
+          "pointsScored": 0,
+          "pointsScoredDifferential": 0,
+          "rank": 0,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7797,
+            "logoUrl": null,
+            "name": "Serendipity "
+          },
+          "winPercentage": ".000",
+          "wins": 0
+        },
+        {
+          "gamesPlayed": 0,
+          "losses": 0,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 0,
+          "pointsAgainst": 0,
+          "pointsScored": 0,
+          "pointsScoredDifferential": 0,
+          "rank": 0,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7796,
+            "logoUrl": null,
+            "name": "Phantom FC "
+          },
+          "winPercentage": ".000",
+          "wins": 0
+        },
+        {
+          "gamesPlayed": 0,
+          "losses": 0,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 0,
+          "pointsAgainst": 0,
+          "pointsScored": 0,
+          "pointsScoredDifferential": 0,
+          "rank": 0,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7795,
+            "logoUrl": null,
+            "name": "Milan Mujeres "
+          },
+          "winPercentage": ".000",
+          "wins": 0
+        },
+        {
+          "gamesPlayed": 0,
+          "losses": 0,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 0,
+          "pointsAgainst": 0,
+          "pointsScored": 0,
+          "pointsScoredDifferential": 0,
+          "rank": 0,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7794,
+            "logoUrl": null,
+            "name": "Manchester "
+          },
+          "winPercentage": ".000",
+          "wins": 0
+        },
+        {
+          "gamesPlayed": 0,
+          "losses": 0,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 0,
+          "pointsAgainst": 0,
+          "pointsScored": 0,
+          "pointsScoredDifferential": 0,
+          "rank": 0,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7793,
+            "logoUrl": null,
+            "name": "Mai Tai "
+          },
+          "winPercentage": ".000",
+          "wins": 0
+        },
+        {
+          "gamesPlayed": 0,
+          "losses": 0,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 0,
+          "pointsAgainst": 0,
+          "pointsScored": 0,
+          "pointsScoredDifferential": 0,
+          "rank": 0,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7792,
+            "logoUrl": null,
+            "name": "Latin Girls "
+          },
+          "winPercentage": ".000",
+          "wins": 0
+        },
+        {
+          "gamesPlayed": 0,
+          "losses": 0,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 0,
+          "pointsAgainst": 0,
+          "pointsScored": 0,
+          "pointsScoredDifferential": 0,
+          "rank": 0,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7791,
+            "logoUrl": null,
+            "name": "JSC"
+          },
+          "winPercentage": ".000",
+          "wins": 0
+        },
+        {
+          "gamesPlayed": 0,
+          "losses": 0,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 0,
+          "pointsAgainst": 0,
+          "pointsScored": 0,
+          "pointsScoredDifferential": 0,
+          "rank": 0,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7790,
+            "logoUrl": null,
+            "name": "Barracuda "
+          },
+          "winPercentage": ".000",
+          "wins": 0
+        }
+      ]
+    }
+  ]
+}
