@@ -319,29 +319,36 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-6526177@mai-tai-calendar
-DTSTAMP:20260925T193905Z
-LAST-MODIFIED:20260925T193905Z
-SEQUENCE:1
+DTSTAMP:20260929T192806Z
+LAST-MODIFIED:20260929T192806Z
+SEQUENCE:2
 DTSTART:20260929T025000Z
 DTEND:20260929T033500Z
-SUMMARY:Mai Tai vs Serendipity
-DESCRIPTION:Mai Tai (home) vs Serendipity (away)\nField 1\n\nNo games playe
- d yet this season.\n\nUpdated Sep 25\, 2026 12:39 PM PDT
+SUMMARY:Mai Tai 8 - 3 Serendipity (W)
+DESCRIPTION:Final: Mai Tai 8 - 3 Serendipity (W)\nField 1\n\nStandings afte
+ r this game:\n1. Phantom FC 1-0\, 3 pts\, GD +5\n2. Milan Mujeres 1-0\, 3 
+ pts\, GD +6\n3. JSC 1-0\, 3 pts\, GD +3\n4. Mai Tai 1-0\, 3 pts\, GD +5\n5
+ . Manchester 0-1\, 0 pts\, GD -5\n5. Latin Girls 0-1\, 0 pts\, GD -3\n7. B
+ arracuda 0-1\, 0 pts\, GD -6\n8. Serendipity 0-1\, 0 pts\, GD -5\n\nUpdate
+ d Sep 29\, 2026 12:28 PM PDT
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-6526211@mai-tai-calendar
-DTSTAMP:20260925T184308Z
-LAST-MODIFIED:20260925T184308Z
-SEQUENCE:0
+DTSTAMP:20260929T192806Z
+LAST-MODIFIED:20260929T192806Z
+SEQUENCE:1
 DTSTART:20261006T043000Z
 DTEND:20261006T051500Z
-SUMMARY:Mai Tai vs Manchester
-DESCRIPTION:Mai Tai (home) vs Manchester (away)\nField 1\n\nStandings and r
- ecords are added the week of the game.\n\nUpdated Sep 25\, 2026 11:43 AM P
- DT
+SUMMARY:Mai Tai (4th\, 1-0) vs Manchester (5th\, 0-1)
+DESCRIPTION:Mai Tai (home) vs Manchester (away)\nField 1\n\nStandings:\n1. 
+ Phantom FC 1-0\, 3 pts\, GD +5\n2. Milan Mujeres 1-0\, 3 pts\, GD +6\n3. J
+ SC 1-0\, 3 pts\, GD +3\n4. Mai Tai 1-0\, 3 pts\, GD +5\n5. Manchester 0-1\
+ , 0 pts\, GD -5\n5. Latin Girls 0-1\, 0 pts\, GD -3\n7. Barracuda 0-1\, 0 
+ pts\, GD -6\n8. Serendipity 0-1\, 0 pts\, GD -5\n\nUpdated Sep 29\, 2026 1
+ 2:28 PM PDT
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE

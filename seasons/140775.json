@@ -23,34 +23,34 @@
           "id": 7792,
           "logoUrl": null,
           "name": "Latin Girls ",
-          "score": null
+          "score": 2
         },
         "awayTeamStats": null,
         "endDateTime": "2026-09-29T02:45:00.000Z",
         "eventId": 6526178,
-        "gameId": null,
+        "gameId": 21225,
         "homeTeam": {
           "divisionId": 1276,
           "divisionName": "13. Monday Women's July-Sept 26",
           "id": 7791,
           "logoUrl": null,
           "name": "JSC",
-          "score": null
+          "score": 5
         },
         "homeTeamStats": null,
-        "includedInStandings": null,
-        "overtime": null,
+        "includedInStandings": true,
+        "overtime": false,
         "privateNote": null,
         "publicNote": null,
-        "shootout": null,
+        "shootout": false,
         "space": {
           "id": 7744,
           "name": "Field 1"
         },
-        "stageId": null,
+        "stageId": 1238,
         "stageName": "Regular Season",
         "startDateTime": "2026-09-29T02:00:00.000Z",
-        "status": "scheduled"
+        "status": "final"
       },
       {
         "awayTeam": {
@@ -59,34 +59,34 @@
           "id": 7797,
           "logoUrl": null,
           "name": "Serendipity ",
-          "score": null
+          "score": 3
         },
         "awayTeamStats": null,
         "endDateTime": "2026-09-29T03:35:00.000Z",
         "eventId": 6526177,
-        "gameId": null,
+        "gameId": 21226,
         "homeTeam": {
           "divisionId": 1276,
           "divisionName": "13. Monday Women's July-Sept 26",
           "id": 7793,
           "logoUrl": null,
           "name": "Mai Tai ",
-          "score": null
+          "score": 8
         },
         "homeTeamStats": null,
-        "includedInStandings": null,
-        "overtime": null,
+        "includedInStandings": true,
+        "overtime": false,
         "privateNote": null,
         "publicNote": null,
-        "shootout": null,
+        "shootout": false,
         "space": {
           "id": 7744,
           "name": "Field 1"
         },
-        "stageId": null,
+        "stageId": 1238,
         "stageName": "Regular Season",
         "startDateTime": "2026-09-29T02:50:00.000Z",
-        "status": "scheduled"
+        "status": "final"
       },
       {
         "awayTeam": {
@@ -95,34 +95,34 @@
           "id": 7794,
           "logoUrl": null,
           "name": "Manchester ",
-          "score": null
+          "score": 0
         },
         "awayTeamStats": null,
         "endDateTime": "2026-09-29T04:25:00.000Z",
         "eventId": 6526176,
-        "gameId": null,
+        "gameId": 21227,
         "homeTeam": {
           "divisionId": 1276,
           "divisionName": "13. Monday Women's July-Sept 26",
           "id": 7796,
           "logoUrl": null,
           "name": "Phantom FC ",
-          "score": null
+          "score": 5
         },
         "homeTeamStats": null,
-        "includedInStandings": null,
-        "overtime": null,
+        "includedInStandings": true,
+        "overtime": false,
         "privateNote": null,
         "publicNote": null,
-        "shootout": null,
+        "shootout": false,
         "space": {
           "id": 7744,
           "name": "Field 1"
         },
-        "stageId": null,
+        "stageId": 1238,
         "stageName": "Regular Season",
         "startDateTime": "2026-09-29T03:40:00.000Z",
-        "status": "scheduled"
+        "status": "final"
       },
       {
         "awayTeam": {
@@ -131,34 +131,34 @@
           "id": 7795,
           "logoUrl": null,
           "name": "Milan Mujeres ",
-          "score": null
+          "score": 7
         },
         "awayTeamStats": null,
         "endDateTime": "2026-09-29T05:15:00.000Z",
         "eventId": 6526175,
-        "gameId": null,
+        "gameId": 21228,
         "homeTeam": {
           "divisionId": 1276,
           "divisionName": "13. Monday Women's July-Sept 26",
           "id": 7790,
           "logoUrl": null,
           "name": "Barracuda ",
-          "score": null
+          "score": 1
         },
         "homeTeamStats": null,
-        "includedInStandings": null,
-        "overtime": null,
+        "includedInStandings": true,
+        "overtime": false,
         "privateNote": null,
         "publicNote": null,
-        "shootout": null,
+        "shootout": false,
         "space": {
           "id": 7744,
           "name": "Field 1"
         },
-        "stageId": null,
+        "stageId": 1238,
         "stageName": "Regular Season",
         "startDateTime": "2026-09-29T04:30:00.000Z",
-        "status": "scheduled"
+        "status": "final"
       },
       {
         "awayTeam": {
@@ -1336,59 +1336,37 @@
       "divisionName": "13. Monday Women's July-Sept 26",
       "standings": [
         {
-          "gamesPlayed": 0,
+          "gamesPlayed": 1,
           "losses": 0,
           "overtimeLosses": 0,
           "overtimeWins": 0,
-          "points": 0,
+          "points": 3,
           "pointsAgainst": 0,
-          "pointsScored": 0,
-          "pointsScoredDifferential": 0,
-          "rank": 0,
+          "pointsScored": 5,
+          "pointsScoredDifferential": 5,
+          "rank": 1,
           "shootoutLosses": 0,
           "shootoutWins": 0,
-          "shutouts": 0,
-          "sportSpecificStats": {},
-          "team": {
-            "id": 7797,
-            "logoUrl": null,
-            "name": "Serendipity "
-          },
-          "winPercentage": ".000",
-          "wins": 0
-        },
-        {
-          "gamesPlayed": 0,
-          "losses": 0,
-          "overtimeLosses": 0,
-          "overtimeWins": 0,
-          "points": 0,
-          "pointsAgainst": 0,
-          "pointsScored": 0,
-          "pointsScoredDifferential": 0,
-          "rank": 0,
-          "shootoutLosses": 0,
-          "shootoutWins": 0,
-          "shutouts": 0,
+          "shutouts": 1,
           "sportSpecificStats": {},
           "team": {
             "id": 7796,
             "logoUrl": null,
             "name": "Phantom FC "
           },
-          "winPercentage": ".000",
-          "wins": 0
+          "winPercentage": "1.000",
+          "wins": 1
         },
         {
-          "gamesPlayed": 0,
+          "gamesPlayed": 1,
           "losses": 0,
           "overtimeLosses": 0,
           "overtimeWins": 0,
-          "points": 0,
-          "pointsAgainst": 0,
-          "pointsScored": 0,
-          "pointsScoredDifferential": 0,
-          "rank": 0,
+          "points": 3,
+          "pointsAgainst": 1,
+          "pointsScored": 7,
+          "pointsScoredDifferential": 6,
+          "rank": 2,
           "shootoutLosses": 0,
           "shootoutWins": 0,
           "shutouts": 0,
@@ -1398,19 +1376,63 @@
             "logoUrl": null,
             "name": "Milan Mujeres "
           },
-          "winPercentage": ".000",
-          "wins": 0
+          "winPercentage": "1.000",
+          "wins": 1
         },
         {
-          "gamesPlayed": 0,
+          "gamesPlayed": 1,
           "losses": 0,
           "overtimeLosses": 0,
           "overtimeWins": 0,
+          "points": 3,
+          "pointsAgainst": 2,
+          "pointsScored": 5,
+          "pointsScoredDifferential": 3,
+          "rank": 3,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7791,
+            "logoUrl": null,
+            "name": "JSC"
+          },
+          "winPercentage": "1.000",
+          "wins": 1
+        },
+        {
+          "gamesPlayed": 1,
+          "losses": 0,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 3,
+          "pointsAgainst": 3,
+          "pointsScored": 8,
+          "pointsScoredDifferential": 5,
+          "rank": 4,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7793,
+            "logoUrl": null,
+            "name": "Mai Tai "
+          },
+          "winPercentage": "1.000",
+          "wins": 1
+        },
+        {
+          "gamesPlayed": 1,
+          "losses": 1,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
           "points": 0,
-          "pointsAgainst": 0,
+          "pointsAgainst": 5,
           "pointsScored": 0,
-          "pointsScoredDifferential": 0,
-          "rank": 0,
+          "pointsScoredDifferential": -5,
+          "rank": 5,
           "shootoutLosses": 0,
           "shootoutWins": 0,
           "shutouts": 0,
@@ -1424,37 +1446,15 @@
           "wins": 0
         },
         {
-          "gamesPlayed": 0,
-          "losses": 0,
+          "gamesPlayed": 1,
+          "losses": 1,
           "overtimeLosses": 0,
           "overtimeWins": 0,
           "points": 0,
-          "pointsAgainst": 0,
-          "pointsScored": 0,
-          "pointsScoredDifferential": 0,
-          "rank": 0,
-          "shootoutLosses": 0,
-          "shootoutWins": 0,
-          "shutouts": 0,
-          "sportSpecificStats": {},
-          "team": {
-            "id": 7793,
-            "logoUrl": null,
-            "name": "Mai Tai "
-          },
-          "winPercentage": ".000",
-          "wins": 0
-        },
-        {
-          "gamesPlayed": 0,
-          "losses": 0,
-          "overtimeLosses": 0,
-          "overtimeWins": 0,
-          "points": 0,
-          "pointsAgainst": 0,
-          "pointsScored": 0,
-          "pointsScoredDifferential": 0,
-          "rank": 0,
+          "pointsAgainst": 5,
+          "pointsScored": 2,
+          "pointsScoredDifferential": -3,
+          "rank": 5,
           "shootoutLosses": 0,
           "shootoutWins": 0,
           "shutouts": 0,
@@ -1468,37 +1468,15 @@
           "wins": 0
         },
         {
-          "gamesPlayed": 0,
-          "losses": 0,
+          "gamesPlayed": 1,
+          "losses": 1,
           "overtimeLosses": 0,
           "overtimeWins": 0,
           "points": 0,
-          "pointsAgainst": 0,
-          "pointsScored": 0,
-          "pointsScoredDifferential": 0,
-          "rank": 0,
-          "shootoutLosses": 0,
-          "shootoutWins": 0,
-          "shutouts": 0,
-          "sportSpecificStats": {},
-          "team": {
-            "id": 7791,
-            "logoUrl": null,
-            "name": "JSC"
-          },
-          "winPercentage": ".000",
-          "wins": 0
-        },
-        {
-          "gamesPlayed": 0,
-          "losses": 0,
-          "overtimeLosses": 0,
-          "overtimeWins": 0,
-          "points": 0,
-          "pointsAgainst": 0,
-          "pointsScored": 0,
-          "pointsScoredDifferential": 0,
-          "rank": 0,
+          "pointsAgainst": 7,
+          "pointsScored": 1,
+          "pointsScoredDifferential": -6,
+          "rank": 7,
           "shootoutLosses": 0,
           "shootoutWins": 0,
           "shutouts": 0,
@@ -1507,6 +1485,28 @@
             "id": 7790,
             "logoUrl": null,
             "name": "Barracuda "
+          },
+          "winPercentage": ".000",
+          "wins": 0
+        },
+        {
+          "gamesPlayed": 1,
+          "losses": 1,
+          "overtimeLosses": 0,
+          "overtimeWins": 0,
+          "points": 0,
+          "pointsAgainst": 8,
+          "pointsScored": 3,
+          "pointsScoredDifferential": -5,
+          "rank": 8,
+          "shootoutLosses": 0,
+          "shootoutWins": 0,
+          "shutouts": 0,
+          "sportSpecificStats": {},
+          "team": {
+            "id": 7797,
+            "logoUrl": null,
+            "name": "Serendipity "
           },
           "winPercentage": ".000",
           "wins": 0
