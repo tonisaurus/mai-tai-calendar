@@ -373,33 +373,32 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-6526323@mai-tai-calendar
-DTSTAMP:20261013T201640Z
-LAST-MODIFIED:20261013T201640Z
-SEQUENCE:1
+DTSTAMP:20261021T184438Z
+LAST-MODIFIED:20261021T184438Z
+SEQUENCE:2
 DTSTART:20261020T034000Z
 DTEND:20261020T042500Z
-SUMMARY:Mai Tai (2nd\, 3-0) vs JSC (3rd\, 2-1)
-DESCRIPTION:Mai Tai (home) vs JSC (away)\nField 1\n\nStandings:\n1. Phantom
-  FC 3-0\, 9 pts\, GD +16\n2. Mai Tai 3-0\, 9 pts\, GD +16\n3. JSC 2-1\, 6 
- pts\, GD -1\n4. Milan Mujeres 2-1\, 6 pts\, GD +9\n5. Latin Girls 1-2\, 3 
- pts\, GD -6\n6. Serendipity 1-2\, 3 pts\, GD -2\n7. Manchester 0-3\, 0 pts
- \, GD -15\n8. Barracuda 0-3\, 0 pts\, GD -17\n\nUpdated Oct 13\, 2026 1:16
-  PM PDT
+SUMMARY:Mai Tai vs JSC
+DESCRIPTION:Mai Tai (home) vs JSC (away)\nField 1\n\nScore not posted yet.\
+ n\nUpdated Oct 21\, 2026 11:44 AM PDT
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-6526337@mai-tai-calendar
-DTSTAMP:20260925T184308Z
-LAST-MODIFIED:20260925T184308Z
-SEQUENCE:0
+DTSTAMP:20261021T184438Z
+LAST-MODIFIED:20261021T184438Z
+SEQUENCE:1
 DTSTART:20261027T043000Z
 DTEND:20261027T051500Z
-SUMMARY:Latin Girls vs Mai Tai
-DESCRIPTION:Latin Girls (home) vs Mai Tai (away)\nField 1\n\nStandings and 
- records are added the week of the game.\n\nUpdated Sep 25\, 2026 11:43 AM 
- PDT
+SUMMARY:Latin Girls (5th\, 1-2) vs Mai Tai (2nd\, 3-0)
+DESCRIPTION:Latin Girls (home) vs Mai Tai (away)\nField 1\n\nStandings:\n1.
+  Phantom FC 3-0\, 9 pts\, GD +16\n2. Mai Tai 3-0\, 9 pts\, GD +16\n3. JSC 
+ 2-1\, 6 pts\, GD -1\n4. Milan Mujeres 2-1\, 6 pts\, GD +9\n5. Latin Girls 
+ 1-2\, 3 pts\, GD -6\n6. Serendipity 1-2\, 3 pts\, GD -2\n7. Manchester 0-3
+ \, 0 pts\, GD -15\n8. Barracuda 0-3\, 0 pts\, GD -17\n\nUpdated Oct 21\, 2
+ 026 11:44 AM PDT
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
