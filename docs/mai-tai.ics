@@ -409,33 +409,36 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-6526387@mai-tai-calendar
-DTSTAMP:20261027T192847Z
-LAST-MODIFIED:20261027T192847Z
-SEQUENCE:1
+DTSTAMP:20261103T203123Z
+LAST-MODIFIED:20261103T203123Z
+SEQUENCE:2
 DTSTART:20261103T035000Z
 DTEND:20261103T043500Z
-SUMMARY:Milan Mujeres (5th\, 2-2-1) vs Mai Tai (3rd\, 4-1)
-DESCRIPTION:Milan Mujeres (home) vs Mai Tai (away)\nField 1\n\nStandings:\n
- 1. Phantom FC 4-0-1\, 13 pts\, GD +22\n2. JSC 4-1\, 12 pts\, GD +10\n3. Ma
- i Tai 4-1\, 12 pts\, GD +18\n4. Serendipity 3-2\, 9 pts\, GD +2\n5. Milan 
- Mujeres 2-2-1\, 7 pts\, GD +8\n6. Barracuda 1-4\, 3 pts\, GD -16\n7. Latin
-  Girls 1-4\, 3 pts\, GD -19\n8. Manchester 0-5\, 0 pts\, GD -25\n\nUpdated
-  Oct 27\, 2026 12:28 PM PDT
+SUMMARY:Milan Mujeres 4 - 2 Mai Tai (L)
+DESCRIPTION:Final: Milan Mujeres 4 - 2 Mai Tai (L)\nField 1\n\nStandings af
+ ter this game:\n1. Phantom FC 5-0-1\, 16 pts\, GD +25\n2. JSC 5-1\, 15 pts
+ \, GD +17\n3. Mai Tai 4-2\, 12 pts\, GD +16\n4. Milan Mujeres 3-2-1\, 10 p
+ ts\, GD +10\n5. Serendipity 3-3\, 9 pts\, GD -1\n6. Latin Girls 2-4\, 6 pt
+ s\, GD -17\n7. Barracuda 1-5\, 3 pts\, GD -23\n8. Manchester 0-6\, 0 pts\,
+  GD -27\n\nUpdated Nov 3\, 2026 12:31 PM PST
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-6526397@mai-tai-calendar
-DTSTAMP:20260925T184308Z
-LAST-MODIFIED:20260925T184308Z
-SEQUENCE:0
+DTSTAMP:20261103T203123Z
+LAST-MODIFIED:20261103T203123Z
+SEQUENCE:1
 DTSTART:20261110T030000Z
 DTEND:20261110T034500Z
-SUMMARY:Phantom FC vs Mai Tai
-DESCRIPTION:Phantom FC (home) vs Mai Tai (away)\nField 1\n\nStandings and r
- ecords are added the week of the game.\n\nUpdated Sep 25\, 2026 11:43 AM P
- DT
+SUMMARY:Phantom FC (1st\, 5-0-1) vs Mai Tai (3rd\, 4-2)
+DESCRIPTION:Phantom FC (home) vs Mai Tai (away)\nField 1\n\nStandings:\n1. 
+ Phantom FC 5-0-1\, 16 pts\, GD +25\n2. JSC 5-1\, 15 pts\, GD +17\n3. Mai T
+ ai 4-2\, 12 pts\, GD +16\n4. Milan Mujeres 3-2-1\, 10 pts\, GD +10\n5. Ser
+ endipity 3-3\, 9 pts\, GD -1\n6. Latin Girls 2-4\, 6 pts\, GD -17\n7. Barr
+ acuda 1-5\, 3 pts\, GD -23\n8. Manchester 0-6\, 0 pts\, GD -27\n\nUpdated 
+ Nov 3\, 2026 12:31 PM PST
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
