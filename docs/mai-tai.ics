@@ -445,18 +445,18 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-6526403@mai-tai-calendar
-DTSTAMP:20261110T205320Z
-LAST-MODIFIED:20261110T205320Z
-SEQUENCE:1
+DTSTAMP:20261117T222826Z
+LAST-MODIFIED:20261117T222826Z
+SEQUENCE:2
 DTSTART:20261117T030000Z
 DTEND:20261117T034500Z
-SUMMARY:Manchester (8th\, 0-7) vs Mai Tai (4th\, 4-3)
-DESCRIPTION:Manchester (home) vs Mai Tai (away)\nField 1\n\nStandings:\n1. 
- Phantom FC 6-0-1\, 19 pts\, GD +28\n2. JSC 6-1\, 18 pts\, GD +20\n3. Milan
-  Mujeres 4-2-1\, 13 pts\, GD +14\n4. Mai Tai 4-3\, 12 pts\, GD +13\n5. Lat
- in Girls 3-4\, 9 pts\, GD -12\n6. Serendipity 3-4\, 9 pts\, GD -4\n7. Barr
- acuda 1-6\, 3 pts\, GD -28\n8. Manchester 0-7\, 0 pts\, GD -31\n\nUpdated 
- Nov 10\, 2026 12:53 PM PST
+SUMMARY:Manchester 1 - 7 Mai Tai (W)
+DESCRIPTION:Final: Manchester 1 - 7 Mai Tai (W)\nField 1\n\nStandings after
+  this game:\n1. Phantom FC 7-0-1\, 22 pts\, GD +38\n2. JSC 7-1\, 21 pts\, 
+ GD +23\n3. Mai Tai 5-3\, 15 pts\, GD +19\n4. Milan Mujeres 4-3-1\, 13 pts\
+ , GD +11\n5. Latin Girls 4-4\, 12 pts\, GD -11\n6. Serendipity 3-5\, 9 pts
+ \, GD -5\n7. Barracuda 1-7\, 3 pts\, GD -38\n8. Manchester 0-8\, 0 pts\, G
+ D -37\n\nUpdated Nov 17\, 2026 2:28 PM PST
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
