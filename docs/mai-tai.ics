@@ -463,30 +463,18 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:bondsports-event-6526466@mai-tai-calendar
-DTSTAMP:20260925T184308Z
-LAST-MODIFIED:20260925T184308Z
-SEQUENCE:0
+DTSTAMP:20261121T203511Z
+LAST-MODIFIED:20261121T203511Z
+SEQUENCE:1
 DTSTART:20261124T030000Z
 DTEND:20261124T034500Z
-SUMMARY:Playoffs: TBD
-DESCRIPTION:Playoffs slot - teams not yet announced.\nThis event will updat
- e once the league sets the matchups\, and will disappear if Mai Tai is not
-  playing in this slot.\nField 1\n\nUpdated Sep 25\, 2026 11:43 AM PDT
-LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:bondsports-event-6526465@mai-tai-calendar
-DTSTAMP:20260925T184308Z
-LAST-MODIFIED:20260925T184308Z
-SEQUENCE:0
-DTSTART:20261124T035000Z
-DTEND:20261124T043500Z
-SUMMARY:Playoffs: TBD
-DESCRIPTION:Playoffs slot - teams not yet announced.\nThis event will updat
- e once the league sets the matchups\, and will disappear if Mai Tai is not
-  playing in this slot.\nField 1\n\nUpdated Sep 25\, 2026 11:43 AM PDT
+SUMMARY:Playoffs: JSC (2nd\, 7-1) vs Mai Tai (3rd\, 5-3)
+DESCRIPTION:JSC (home) vs Mai Tai (away)\nPlayoffs\nField 1\n\nStandings:\n
+ 1. Phantom FC 7-0-1\, 22 pts\, GD +38\n2. JSC 7-1\, 21 pts\, GD +23\n3. Ma
+ i Tai 5-3\, 15 pts\, GD +19\n4. Milan Mujeres 4-3-1\, 13 pts\, GD +11\n5. 
+ Latin Girls 4-4\, 12 pts\, GD -11\n6. Serendipity 3-5\, 9 pts\, GD -5\n7. 
+ Barracuda 1-7\, 3 pts\, GD -38\n8. Manchester 0-8\, 0 pts\, GD -37\n\nUpda
+ ted Nov 21\, 2026 12:35 PM PST
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
