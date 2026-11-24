@@ -124,14 +124,64 @@
     "last_modified": "2026-11-17T22:28:26+00:00",
     "sequence": 2
   },
-  "bondsports-event-6526464@mai-tai-calendar": {
-    "hash": "08b5f3dd25d327d527889c1a2c95a12a69d81993c564eebd592f5319d63539ca",
-    "last_modified": "2026-09-25T18:43:08+00:00",
-    "sequence": 0
-  },
   "bondsports-event-6526466@mai-tai-calendar": {
     "hash": "66cb5c635ed21ec375858e2a982cfb3ef984cb7d909ddb94b5e4296c89ef969c",
     "last_modified": "2026-11-21T20:35:11+00:00",
     "sequence": 1
+  },
+  "bondsports-event-7038543@mai-tai-calendar": {
+    "hash": "baef571bed43fba729caeae36867c493e06083bb144643210cc4170d1c87138c",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
+  },
+  "bondsports-event-7038631@mai-tai-calendar": {
+    "hash": "17153c21ff8b9b39612eb76881a5054bb344dc7f5a6e7bd41a2b363aff4ac061",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
+  },
+  "bondsports-event-7038803@mai-tai-calendar": {
+    "hash": "c40c03d5350570fdb9c44f3958f6b74e5def856659f8565fb2b32fbf256fa910",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
+  },
+  "bondsports-event-7038810@mai-tai-calendar": {
+    "hash": "cc871b43758a079459150b5cdd026fb5108c05a9662d3d428587faabe9d7162a",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
+  },
+  "bondsports-event-7038893@mai-tai-calendar": {
+    "hash": "84b1d7361b8dfce5ef82ea69cef1a61ab6f61676539aacc6a9c4e85899800366",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
+  },
+  "bondsports-event-7038899@mai-tai-calendar": {
+    "hash": "4dcf1cc5126a66c6f788d912708bf8f0f6ed736c487232fcb7900c2806587aa8",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
+  },
+  "bondsports-event-7038909@mai-tai-calendar": {
+    "hash": "300f5b0b74035d6ed387493a310cf5956aa7328919d8ee9cbfe6f49e1235987c",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
+  },
+  "bondsports-event-7038916@mai-tai-calendar": {
+    "hash": "8d1f9da4a9ceec1f00c78d2fe90da965fd6997824665c43c5f9fd65953bd26a5",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
+  },
+  "bondsports-event-7038977@mai-tai-calendar": {
+    "hash": "9ebd186a94d79ab1dab90663fce3fadd1e8337cb62930737464c503971ce9de9",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
+  },
+  "bondsports-event-7038978@mai-tai-calendar": {
+    "hash": "de05249092abf9978ca565976470cc752a6fa8b8b9305c8f88ced51f7636b2ac",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
+  },
+  "bondsports-event-7038979@mai-tai-calendar": {
+    "hash": "4f5191894ae583f25b5645618939204a5379257dec78219babca65131c3f9cba",
+    "last_modified": "2026-11-24T23:31:15+00:00",
+    "sequence": 0
   }
 }

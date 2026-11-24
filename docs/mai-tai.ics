@@ -480,16 +480,162 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:bondsports-event-6526464@mai-tai-calendar
-DTSTAMP:20260925T184308Z
-LAST-MODIFIED:20260925T184308Z
+UID:bondsports-event-7038543@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
 SEQUENCE:0
-DTSTART:20261124T044000Z
-DTEND:20261124T052500Z
+DTSTART:20261201T044000Z
+DTEND:20261201T052500Z
+SUMMARY:Serendipity vs Mai Tai
+DESCRIPTION:Serendipity (home) vs Mai Tai (away)\nField 1\n\nStandings and 
+ records are added the week of the game.\n\nUpdated Nov 24\, 2026 3:31 PM P
+ ST
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-7038631@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
+SEQUENCE:0
+DTSTART:20261208T053000Z
+DTEND:20261208T061500Z
+SUMMARY:Kits Team vs Mai Tai
+DESCRIPTION:Kits Team (home) vs Mai Tai (away)\nField 1\n\nStandings and re
+ cords are added the week of the game.\n\nUpdated Nov 24\, 2026 3:31 PM PST
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-7038803@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
+SEQUENCE:0
+DTSTART:20261215T035000Z
+DTEND:20261215T043500Z
+SUMMARY:Mai Tai vs AC Milan
+DESCRIPTION:Mai Tai (home) vs AC Milan (away)\nField 1\n\nStandings and rec
+ ords are added the week of the game.\n\nUpdated Nov 24\, 2026 3:31 PM PST
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-7038810@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
+SEQUENCE:0
+DTSTART:20261222T030000Z
+DTEND:20261222T034500Z
+SUMMARY:Mai Tai vs Manchester
+DESCRIPTION:Mai Tai (home) vs Manchester (away)\nField 1\n\nStandings and r
+ ecords are added the week of the game.\n\nUpdated Nov 24\, 2026 3:31 PM PS
+ T
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-7038893@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
+SEQUENCE:0
+DTSTART:20270105T035000Z
+DTEND:20270105T043500Z
+SUMMARY:Mai Tai vs Latin Girls
+DESCRIPTION:Mai Tai (home) vs Latin Girls (away)\nField 1\n\nStandings and 
+ records are added the week of the game.\n\nUpdated Nov 24\, 2026 3:31 PM P
+ ST
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-7038899@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
+SEQUENCE:0
+DTSTART:20270112T053000Z
+DTEND:20270112T061500Z
+SUMMARY:Phantom FC vs Mai Tai
+DESCRIPTION:Phantom FC (home) vs Mai Tai (away)\nField 1\n\nStandings and r
+ ecords are added the week of the game.\n\nUpdated Nov 24\, 2026 3:31 PM PS
+ T
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-7038909@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
+SEQUENCE:0
+DTSTART:20270126T044000Z
+DTEND:20270126T052500Z
+SUMMARY:Barracuda vs Mai Tai
+DESCRIPTION:Barracuda (home) vs Mai Tai (away)\nField 1\n\nStandings and re
+ cords are added the week of the game.\n\nUpdated Nov 24\, 2026 3:31 PM PST
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-7038916@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
+SEQUENCE:0
+DTSTART:20270202T030000Z
+DTEND:20270202T034500Z
+SUMMARY:Mai Tai vs Kits Team
+DESCRIPTION:Mai Tai (home) vs Kits Team (away)\nField 1\n\nStandings and re
+ cords are added the week of the game.\n\nUpdated Nov 24\, 2026 3:31 PM PST
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-7038979@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
+SEQUENCE:0
+DTSTART:20270209T030000Z
+DTEND:20270209T034500Z
 SUMMARY:Playoffs: TBD
 DESCRIPTION:Playoffs slot - teams not yet announced.\nThis event will updat
  e once the league sets the matchups\, and will disappear if Mai Tai is not
-  playing in this slot.\nField 1\n\nUpdated Sep 25\, 2026 11:43 AM PDT
+  playing in this slot.\nField 1\n\nUpdated Nov 24\, 2026 3:31 PM PST
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-7038978@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
+SEQUENCE:0
+DTSTART:20270209T035000Z
+DTEND:20270209T043500Z
+SUMMARY:Playoffs: TBD
+DESCRIPTION:Playoffs slot - teams not yet announced.\nThis event will updat
+ e once the league sets the matchups\, and will disappear if Mai Tai is not
+  playing in this slot.\nField 1\n\nUpdated Nov 24\, 2026 3:31 PM PST
+LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:bondsports-event-7038977@mai-tai-calendar
+DTSTAMP:20261124T233115Z
+LAST-MODIFIED:20261124T233115Z
+SEQUENCE:0
+DTSTART:20270209T044000Z
+DTEND:20270209T052500Z
+SUMMARY:Playoffs: TBD
+DESCRIPTION:Playoffs slot - teams not yet announced.\nThis event will updat
+ e once the league sets the matchups\, and will disappear if Mai Tai is not
+  playing in this slot.\nField 1\n\nUpdated Nov 24\, 2026 3:31 PM PST
 LOCATION:Sports House\, 3151 Edison Way\, Redwood City\, CA 94063
 STATUS:CONFIRMED
 TRANSP:OPAQUE
